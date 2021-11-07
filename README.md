@@ -1,10 +1,12 @@
 # cs202-g26-semester-project
 
 A line saying whether this is a basic or challenge level project
-    This is currently a basic level project
+    
+	This is currently a basic level project
 
 
 The full names of each team member
+	
 	Timothy Wellman, 
     
 	
