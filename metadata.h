@@ -42,7 +42,7 @@ typedef struct Metadata {
 	friend std::ostream& operator<<(std::ostream& out, const Metadata& metaOut); //For easy display of the metadata to be contained in the struct
 	
 	friend std::istream& operator>>(std::istream& in, Metadata& metaIn);//for easy scanning into from the file
-}
+};
 
 //operator overloads for those tasty brownie points 
 
