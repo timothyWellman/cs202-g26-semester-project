@@ -1,4 +1,5 @@
-//
+//metadata.cpp
+//Timothy Wellman
 
 
 //include statements
