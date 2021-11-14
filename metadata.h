@@ -18,9 +18,9 @@ typedef struct Metadata {
 	
 	char format[4]; //This is supposed to be "WAVE". If not, we need to throw an exception
 	
-	char subchunk1Id[4]; //Again, either "fmt " or exception
+	char subChunk1Id[4]; //Again, either "fmt " or exception
 	
-	int subchunk1Size; //We probably won't need this, but we expect it to be 16 
+	int subChunk1Size; //We probably won't need this, but we expect it to be 16 
 	
 	short int audioFormat; //Again, won't need this very much, but good for theoretically expanding this program later
 	
@@ -34,9 +34,9 @@ typedef struct Metadata {
 	
 	short int bitsPerSample; //we expect this to be either 8 or 16 and is used for the echo algorithm
 	
-	char subchunk2Id[4]; //nice and easy: "data" or bust
+	char subChunk2Id[4]; //nice and easy: "data" or bust
 	
-	short int subchunk2Size; //this one is used in determining the length of the array
+	short int subChunk2Size; //this one is used in determining the length of the array
 	
 	//operator overloads
 	friend std::ostream& operator<<(std::ostream& out, const Metadata& metaOut); //For easy display of the metadata to be contained in the struct
