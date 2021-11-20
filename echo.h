@@ -15,6 +15,7 @@ class Echo: public AudioProcessor {
 	unsigned int delay = 0;
 	float delayInSeconds = 0;
 	float decay = 0.0;
+	short int channelNum = 1;
 	
 	
 	public:

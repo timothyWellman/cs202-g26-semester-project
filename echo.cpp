@@ -14,9 +14,9 @@ void Echo::runProcessor(unsigned char* buffer, int bufferSize){
 		(buffer[i] - mid) + decay*(buffer[i-delay] - mid) + mid = new value
 		*/
 		int amp1 = buffer[i] - mid;//amplitude of the "call"
-		if (i>delay){
+		if (i>delay*channelNum){
 
-			int amp2 = (buffer[i-delay]-mid) * decay;//amplitude of the "back"
+			int amp2 = (buffer[i-delay*channelNum]-mid) * decay;//amplitude of the "back"
 			amp1+=amp2;//smush 'em together
 
 		}
@@ -28,9 +28,11 @@ void Echo::runProcessor(unsigned char* buffer, int bufferSize){
 
 void Echo::processFile(WavFile& waveFile){
 
+
 	if(delay == 0){
 		delay = delayInSeconds*waveFile.getMetadata().sampleRate;
 	}
+	channelNum = waveFile.getMetadata().numChannels;
 	runProcessor(waveFile.getBuffer(), waveFile.getMetadata().subChunk2Size);
 	Metadata newLength = waveFile.getMetadata();
 	newLength.subChunk2Size += delay*newLength.numChannels*newLength.bitsPerSample/8;
