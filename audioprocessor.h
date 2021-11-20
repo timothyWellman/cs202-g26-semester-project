@@ -6,6 +6,7 @@
 #define AUDIO_PROCESSOR_H
 //inclusion statements
 #include"metadata.h"
+#include"wavfile.h"
 #include <cmath> //for those lovely math functions
 //class definition
 class AudioProcessor {
@@ -27,6 +28,11 @@ class AudioProcessor {
 	const unsigned char mid = 128;
 
 	virtual void runProcessor(unsigned char* buffer, int bufferSize) = 0;
+	virtual void runProcessor(WavFile& waveFile) = 0;
+	void fixValue(unsigned char sample){
+		sample = (sample > max) ? max : sample; //this makes sure the sample does not exit the range of the sound
+		sample = (sample < min) ? min : sample; //likewise for the minimum values
+	}
 
 };
 
