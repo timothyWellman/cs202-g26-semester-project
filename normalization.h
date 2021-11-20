@@ -14,9 +14,9 @@ class Normalization: public AudioProcessor {
 	private:
 	//nothing here yet
 	public:
-	void runProcessor() override;
+	void runProcessor(unsigned char* buffer, int bufferSize) override;
 	//constructor
-	Normalization(const WavFile& original);
+	Normalization();
 	
 };
 

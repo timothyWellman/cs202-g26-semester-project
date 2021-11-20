@@ -17,9 +17,9 @@ class Echo: public AudioProcessor {
 	
 	
 	public:
-	void runProcessor() override;
+	void runProcessor(unsigned char* buffer, int bufferSize) override;
 	//constructors are the solution here
-	Echo(const WavFile& original, unsigned int newDelay, float newDecay);
+	Echo(unsigned int newDelay, float newDecay);
 };
 
 #endif

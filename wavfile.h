@@ -8,19 +8,21 @@
 
 //include statements
 #include "metadata.h"
-#include "audiofile.h"
+//#include "audiofile.h" 
 
-class WavFile: public AudioFile{
+class WavFile{
 //i know we don't need to say private, but I like it to be explicit
 	private:
 	Metadata metadata;
-	
+	unsigned char* audioBuffer = NULL;//how to get/set this...
+
 	public:
 	Metadata getMetadata(){return metadata;}
 	void setMetadata(const Metadata& newMeta){metadata = newMeta;}
-
+	
+	
 	//cheeky constructor
-	WavFile(const Metadata& newMeta, size_t* audioStart);
+	WavFile() = default;
 
 
 	//char* getBuffer(){return audioBuffer;}
