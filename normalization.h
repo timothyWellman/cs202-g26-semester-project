@@ -15,6 +15,11 @@ class Normalization: public AudioProcessor {
 	//nothing here yet
 	public:
 	void runProcessor(unsigned char* buffer, int bufferSize) override;
+	void processFile(WavFile& waveFile) override;
+
+	//quality of life method
+	unsigned char findLargestAmplitude(unsigned char* buffer, int bufferSize);
+
 	//constructor
 	Normalization();
 	

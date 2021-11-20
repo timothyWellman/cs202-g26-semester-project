@@ -12,6 +12,6 @@ void GainAdjustment::runProcessor(unsigned char* buffer, int bufferSize){
 	}
 }
 
-void GainAdjustment::runProcessor(WavFile& waveFile){
+void GainAdjustment::processFile(WavFile& waveFile){
 	runProcessor(waveFile.getBuffer(), waveFile.getMetadata().subChunk2Size);
 }//unnecessary but to fix some issues with metadata analysis in other processors

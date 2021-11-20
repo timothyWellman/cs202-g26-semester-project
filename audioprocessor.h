@@ -20,6 +20,8 @@ class AudioProcessor {
 	to make that dynamic, it may be better in the future have the audioprocessor access the file object, not the buffer itself
 
 	perhaps overload the virtual runProcessor function for secondary use to manipulate & learn from the metadata. may be inevetible
+		if so, then the creation/assignment of these values should be done at construction
+		also the datatype of audio samples is frustrating
 */
 	
 	public:
@@ -28,7 +30,7 @@ class AudioProcessor {
 	const unsigned char mid = 128;
 
 	virtual void runProcessor(unsigned char* buffer, int bufferSize) = 0;
-	virtual void runProcessor(WavFile& waveFile) = 0;
+	virtual void processFile(WavFile& waveFile) = 0;
 	void fixValue(unsigned char sample){
 		sample = (sample > max) ? max : sample; //this makes sure the sample does not exit the range of the sound
 		sample = (sample < min) ? min : sample; //likewise for the minimum values

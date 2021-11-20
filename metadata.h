@@ -26,13 +26,13 @@ typedef struct Metadata {
 	
 	short int numChannels; //Very important for processor algorithms 
 	
-	int sampleRate; //need this for display and expansion 
+	int sampleRate; //need this for converting from samples to seconds
 	
 	int byteRate; //need this for display and expansion
 	
 	short int blockAlign; //something we can use to throw an exception for if it isn't the expected value
 	
-	short int bitsPerSample; //we expect this to be either 8 or 16 
+	short int bitsPerSample; //we expect this to be either 8 or 16. to be used to determine possible sample values
 	
 	char subChunk2Id[4]; //nice and easy: "data" or bust
 	
