@@ -14,15 +14,15 @@ class WavFile{
 //i know we don't need to say private, but I like it to be explicit
 	private:
 	Metadata metadata;
-	unsigned char* audioBuffer = NULL;//how to get/set this...
+	int* audioBuffer = NULL;//how to get/set this...
 
 	public:
 	//getters & setters
 	Metadata getMetadata() const {return metadata;}
 	void setMetadata(const Metadata& newMeta){metadata = newMeta;}//do we need this?
 
-	unsigned char* getBuffer() const {return audioBuffer;}
-	void setBuffer(unsigned char* newArray){audioBuffer = newArray;}
+	int* getBuffer() const {return audioBuffer;}
+	void setBuffer(int* newArray){audioBuffer = newArray;}
 	
 	//constructor
 	WavFile() = default;

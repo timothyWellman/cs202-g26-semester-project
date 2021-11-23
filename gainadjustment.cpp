@@ -4,7 +4,7 @@
 //inclusion statements
 #include "gainadjustment.h"
 
-void GainAdjustment::runProcessor(unsigned char* buffer, int bufferSize){
+void GainAdjustment::runProcessor(int* buffer, int bufferSize){
 
 	for (int i = 0; i < bufferSize; i++){
 		buffer[i] = (buffer[i]-mid)*scalingFactor + mid; //this alters the sample's distance from the midpoint by the scaling factor
