@@ -5,7 +5,7 @@
 #ifndef AUDIO_PROCESSOR_H
 #define AUDIO_PROCESSOR_H
 //inclusion statements
-#include"metadata.h"
+#include"wavheader.h"
 #include"wavfile.h"
 //#include <cmath> //for those lovely math functions
 //class definition
@@ -19,7 +19,7 @@ class AudioProcessor {
 
 	to make that dynamic, it may be better in the future have the audioprocessor access the file object, not the buffer itself
 
-	perhaps overload the virtual runProcessor function for secondary use to manipulate & learn from the metadata. may be inevetible
+	perhaps overload the virtual runProcessor function for secondary use to manipulate & learn from the header. may be inevetible
 		if so, then the creation/assignment of these values should be done at construction
 		also the datatype of audio samples is frustrating
 */

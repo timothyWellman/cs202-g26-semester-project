@@ -8,7 +8,7 @@
 #include "audioprocessor.h"
 #include "wavfile.h"
 
-//class definition
+//class definition 
 class Echo: public AudioProcessor {
 	
 	private:

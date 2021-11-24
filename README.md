@@ -11,7 +11,7 @@ The full names of each team member
     
 	
 The contribution of each team member
-	
+	Timothy: Processors, wav file object, header struct
 	
 	
 	

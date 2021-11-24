@@ -13,5 +13,5 @@ void GainAdjustment::runProcessor(int* buffer, int bufferSize){
 }
 
 void GainAdjustment::processFile(WavFile& waveFile){
-	runProcessor(waveFile.getBuffer(), waveFile.getMetadata().subChunk2Size);
-}//unnecessary but to fix some issues with metadata analysis in other processors
+	runProcessor(waveFile.getBuffer(), waveFile.getWavHeader().subChunk2Size);
+}//unnecessary but to fix some issues with wavheader analysis in other processors
