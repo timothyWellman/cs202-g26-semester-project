@@ -7,6 +7,7 @@
 //inclusion statements
 #include"wavheader.h"
 #include"wavfile.h"
+#include<cmath>
 //#include <cmath> //for those lovely math functions
 //class definition
 class AudioProcessor {
