@@ -33,7 +33,7 @@ class WavFile{
 	/**
 	 * @brief used to reset the wavheader after editing
 	 * 
-	 * @param newMeta
+	 * @param newHeader
 	 */
 	void setWavHeader(const WavHeader& newHeader){wavheader = newHeader;}//do we need this?
 

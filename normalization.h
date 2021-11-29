@@ -12,7 +12,11 @@
 class Normalization: public AudioProcessor {
 	
 	private:
-	//nothing here yet
+
+	int factorNumerator;
+	int factorDenominator;
+	float factor;
+	
 	public:
 	void runProcessor(int* buffer, int bufferSize) override;
 	void processFile(WavFile& waveFile) override;

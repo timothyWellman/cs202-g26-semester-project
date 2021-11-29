@@ -13,52 +13,61 @@ typedef struct WavHeader {
 
 	//attributes
 
+	
 	/**
 	 * @brief This is supposed to be "RIFF". If not, we should throw an exception when trying the code
 
 	 * 
 	 */
 	char chunkId[4]; 
+	
 	/**
 	 * @brief This isn't really going to be useful except for exception throwing for safety: "RIFF" or bust
 	 * 
 	 */
 	int chunkSize; 	
+	
 	/**
 	 * @brief This is supposed to be "WAVE". If not, we need to throw an exception
 	 * 
 	 */
 	char format[4]; 
+	
 	/**
 	 * @brief Either "fmt " or exception
 	 * 
 	 */
 	char subChunk1Id[4]; 
+	
 	/**
 	 * @brief Expected to be 16, else an exception is needed
 	 * 
 	 */
 	int subChunk1Size; 
+
 	/**
 	 * @brief We expect this to be 1, unless it is compressed. Not sure how to deal with that yet.
 	 * 
 	 */
 	short int audioFormat; 
+	
 	/**
 	 * @brief Number of Channels of audio: important for processors like echo
 	 * 
 	 */
 	short int numChannels; 
+	
 	/**
 	 * @brief The number of samples taken per second. 
 	 * 
 	 */
 	int sampleRate; //need this for converting from samples to seconds
+	
 	/**
-	 * @brief  
+	 * @brief  a confirmable function of several values for exception throwing
 	 * 
 	 */
-	int byteRate; //need this for display and expansion
+	int byteRate; 
 	
 	short int blockAlign; //something we can use to throw an exception for if it isn't the expected value
 	
