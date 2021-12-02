@@ -19,7 +19,7 @@ class Echo: public AudioProcessor {
 	
 	
 	public:
-	void runProcessor(int* buffer, int bufferSize) override;
+	void runProcessor( float* buffer, int bufferSize) override;
 	void processFile(WavFile& waveFile) override;
 
 	//constructors are the solution here

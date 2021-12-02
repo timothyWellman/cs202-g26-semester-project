@@ -4,14 +4,14 @@
 //include statements
 #include "normalization.h"
 
-int Normalization::findLargestAmplitude(int* buffer, int bufferSize){
-	int currentLargestest = 0;
+float Normalization::findLargestAmplitude( float* buffer, int bufferSize){
+	float currentLargestest = 0;
 
 	for (int i = 0; i < bufferSize; i++)
 	{
-		if (std::abs(buffer[i]-mid)>std::abs(currentLargestest))
+		if (std::abs(buffer[i])>std::abs(currentLargestest))
 		{
-			currentLargestest = buffer[i]-mid;
+			currentLargestest = buffer[i];
 		}
 		
 	}
@@ -21,18 +21,15 @@ int Normalization::findLargestAmplitude(int* buffer, int bufferSize){
 
 void Normalization::processFile(WavFile& waveFile){
 
-	factorNumerator = max - mid;
 	factorDenominator = findLargestAmplitude(waveFile.getBuffer(), waveFile.getWavHeader().subChunk2Size);
-	factor = factorNumerator/factorDenominator;
+	factor = 1/factorDenominator;
 	runProcessor(waveFile.getBuffer(), waveFile.getWavHeader().subChunk2Size);
 
 }
 
-void Normalization::runProcessor(int* buffer, int bufferSize){
+void Normalization::runProcessor( float* buffer, int bufferSize){
 
 	for(int i = 0; i < bufferSize; i++){
-		int amplitude = buffer[i] - mid;
-		amplitude *= factor;
-		buffer[i] = amplitude + mid;
+		buffer[i] *= factor;
 	}
 }

@@ -13,16 +13,15 @@ class Normalization: public AudioProcessor {
 	
 	private:
 
-	int factorNumerator;
-	int factorDenominator;
+	float factorDenominator;
 	float factor;
 	
 	public:
-	void runProcessor(int* buffer, int bufferSize) override;
+	void runProcessor( float* buffer, int bufferSize) override;
 	void processFile(WavFile& waveFile) override;
 
 	//quality of life method
-	int findLargestAmplitude(int* buffer, int bufferSize);
+	float findLargestAmplitude( float* buffer, int bufferSize);
 
 	//constructor
 	Normalization();

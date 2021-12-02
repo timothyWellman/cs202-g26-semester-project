@@ -69,7 +69,9 @@ WavHeader& WavHeader::operator=(const WavHeader& rhs){
 	return *this;
 }
 
-
+void WavHeader::checkMetadata(){
+	bool typeError = (0);
+}
 /*
 
 out << "Sample Rate: " << headerOut.sampleRate << std::endl;

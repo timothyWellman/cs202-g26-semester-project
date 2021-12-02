@@ -69,14 +69,24 @@ typedef struct WavHeader {
 	 */
 	int byteRate; 
 	
-	short int blockAlign; //something we can use to throw an exception for if it isn't the expected value
+	/**
+	 * @brief NumChannels * BitsPerSample/8
+	 * 
+	 */
+	short int blockAlign; 
 	
+	/**
+	 * @brief Determines possible values of the samples
+	 * 
+	 */
 	short int bitsPerSample; //we expect this to be either 8 or 16. to be used to determine possible sample values
 	
 	char subChunk2Id[4]; //nice and easy: "data" or bust
 	
 	short int subChunk2Size; //this one is used in determining the length of the array
 	
+	//exception checker
+	void checkMetadata();
 	//operator overloads
 	friend std::ostream& operator<<(std::ostream& out, const WavHeader& metaOut); //For easy display of the wavheader to be contained in the struct
 	

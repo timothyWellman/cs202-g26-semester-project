@@ -6,26 +6,26 @@
 
 
 /*
-void Echo::runProcessor(int* buffer, int bufferSize){
+void Echo::runProcessor(float* buffer, int bufferSize){
 //need to move the buffer value reassignment to where the wav file can be accessed
 	//this ended up being problematic to overload, with the passing by value of the pointer
 
 	for (int i = 0; i < newBufferLength + delay; i++){
 		/*
-		buffer[i]-mid = amplitude 1
-		buffer[i-delay]-mid = amplitude 2
-		(buffer[i] - mid) + decay*(buffer[i-delay] - mid) = new amplitude
-		(buffer[i] - mid) + decay*(buffer[i-delay] - mid) + mid = new value
+		buffer[i]  = amplitude 1
+		buffer[i-delay]  = amplitude 2
+		(buffer[i]  ) + decay*(buffer[i-delay]  ) = new amplitude
+		(buffer[i]  ) + decay*(buffer[i-delay]  )   = new value
 		
 
-		int amp1 = oldBuffer[i] - mid;//amplitude of the "call"
+		int amp1 = oldBuffer[i]  ;//amplitude of the "call"
 		if (i>delay*channelNum){
 
-			int amp2 = (oldBuffer[i-delay*channelNum]-mid) * decay;//amplitude of the "back"
+			int amp2 = (oldBuffer[i-delay*channelNum] ) * decay;//amplitude of the "back"
 			amp1+=amp2;//smush 'em together
 
 		}
-		waveFile.getBuffer()[i] = amp1 + mid;//go back from amplitude to value
+		waveFile.getBuffer()[i] = amp1  ;//go back from amplitude to value
 		
 		fixValue(waveFile.getBuffer()[i]);
 	}
@@ -46,26 +46,26 @@ void Echo::processFile(WavFile& waveFile){
 		delay = delayInSeconds*waveFile.getWavHeader().sampleRate;
 	}
 	channelNum = waveFile.getWavHeader().numChannels;
-	int* oldBuffer = waveFile.getBuffer();
+	float* oldBuffer = waveFile.getBuffer();
 	int newBufferLength = waveFile.getWavHeader().subChunk2Size + delay;
 	waveFile.setBuffer(new int[newBufferLength]);
 
 	for (int i = 0; i < newBufferLength + delay; i++){
 		/*
-		buffer[i]-mid = amplitude 1
-		buffer[i-delay]-mid = amplitude 2
-		(buffer[i] - mid) + decay*(buffer[i-delay] - mid) = new amplitude
-		(buffer[i] - mid) + decay*(buffer[i-delay] - mid) + mid = new value
+		buffer[i]  = amplitude 1
+		buffer[i-delay]  = amplitude 2
+		(buffer[i]) + decay*(buffer[i-delay]) = new amplitude
+		(buffer[i]) + decay*(buffer[i-delay])   = new value
 		*/
 
-		int amp1 = oldBuffer[i] - mid;//amplitude of the "call"
+		int amp1 = oldBuffer[i]  ;//amplitude of the "call"
 		if (i>delay*channelNum){
 
-			int amp2 = (oldBuffer[i-delay*channelNum]-mid) * decay;//amplitude of the "back"
+			int amp2 = (oldBuffer[i-delay*channelNum]) * decay;//amplitude of the "back"
 			amp1+=amp2;//smush 'em together
 
 		}
-		waveFile.getBuffer()[i] = amp1 + mid;//go back from amplitude to value
+		waveFile.getBuffer()[i] = amp1;//go back from amplitude to value
 		
 		fixValue(waveFile.getBuffer()[i]);
 	}

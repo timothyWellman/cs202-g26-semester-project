@@ -15,7 +15,7 @@ class GainAdjustment: public AudioProcessor {
 	float scalingFactor;
 	
 	public:
-	void runProcessor(int* buffer, int bufferSize) override;
+	void runProcessor( float* buffer, int bufferSize) override;
 	void processFile(WavFile& waveFile) override;
 //constructors
 	GainAdjustment(float newScale){scalingFactor = newScale;}
