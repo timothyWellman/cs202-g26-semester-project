@@ -7,14 +7,14 @@ A line saying whether this is a basic or challenge level project
 
 The full names of each team member
 	
-	Timothy Wellman, Rubi Dionisio
+	Timothy Wellman, Rubi Dionisio, Kevin Munson
     
 	
 The contribution of each team member
 	
 	Timothy: Processors, wav file object, header struct
 	Rubi: File Manager
-	
+	Kevin: UI and Menu Logic
 	
 	
 	
