@@ -5,8 +5,19 @@
 #ifndef LOW_PASS_FILTER_H
 #define LOW_PASS_FILTER_H
 //include Statements
-#include "normalization.h"
 #include "audioprocessor.h"
-class LowPassFilter: public Normalization {};
+class LowPassFilter: public AudioProcessor {
+
+	private:
+	float thresholdFrequency;
+	float* derivativeBuffer;
+
+
+	public:
+	void runProcessor(float* buffer, int bufferSize) override;
+	void processFile(WavFile& waveFile) override;
+	void calculateDerivative(float* buffer, int bufferSize);
+
+};
 
 #endif
