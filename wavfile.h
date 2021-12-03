@@ -8,7 +8,7 @@
 
 //include statements
 #include "wavheader.h"
-//#include "audiofile.h" 
+
 
 /**
  * @brief class to store .wav file, containing wavheader and a pointer to dynamically created array of audio samples
@@ -100,6 +100,7 @@ class WavFile{
 	 */
 	WavFile(const WavHeader& newHeader, short* audioStart);
 	
+	~WavFile(){delete audioBuffer; delete eightBitBuffer; delete sixteenBitBuffer;}
 
 };
 

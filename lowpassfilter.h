@@ -6,17 +6,34 @@
 #define LOW_PASS_FILTER_H
 //include Statements
 #include "audioprocessor.h"
-class LowPassFilter: public AudioProcessor {
+#include "normalization.h"
+
+
+
+class LowPassFilter: public AudioProcessor, public Normalization {
 
 	private:
-	float thresholdFrequency;
-	float* derivativeBuffer;
+	/**
+	 * @brief The frequency in hertz of the cutoff point
+	 * 
+	 */
+	float thresholdFrequency = 500;
 
+	/**
+	 * @brief the number of samples that makes a 180 degree phase shift in the threshold frequency
+	 * 
+	 */
+	int thresholdDelay;
+
+	char channelNum = 1;
+	
 
 	public:
-	void runProcessor(float* buffer, int bufferSize) override;
 	void processFile(WavFile& waveFile) override;
-	void calculateDerivative(float* buffer, int bufferSize);
+	void runProcessor( float* buffer, int bufferSize) override;
+	void calculateThresholdDelay(float frequency, const WavHeader& header);
+	void filterFrequency(int currentDelay, int finalDelay, float* buffer, int bufferSize); //recursively called method that runs through each value to get 
+	LowPassFilter(float frequency) : thresholdFrequency(frequency){}
 
 };
 

@@ -11,6 +11,7 @@ The full names of each team member
     
 	
 The contribution of each team member
+	
 	Timothy: Processors, wav file object, header struct
 	Rubi: File Manager
 	
@@ -30,6 +31,7 @@ A section detailing issues, including any functionality that is missing
 
 A section detailing the challenges that you encountered in the project
 
+	Timothy: finding low-pass filter algorithms that explain things beyond "well, you're probably going to want to phase shift somewhere" or "well, here's a circuit diagram. good luck with the digitizing." Similar issues with the compressor.
 
 
 

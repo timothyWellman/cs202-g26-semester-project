@@ -17,8 +17,8 @@ class Normalization: public AudioProcessor {
 	float factor;
 	
 	public:
-	void runProcessor( float* buffer, int bufferSize) override;
-	void processFile(WavFile& waveFile) override;
+	virtual void runProcessor( float* buffer, int bufferSize) override;
+	virtual void processFile(WavFile& waveFile) override;
 
 	//quality of life method
 	float findLargestAmplitude( float* buffer, int bufferSize);

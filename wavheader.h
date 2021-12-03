@@ -76,7 +76,7 @@ typedef struct WavHeader {
 	short int blockAlign; 
 	
 	/**
-	 * @brief Determines possible values of the samples
+	 * @brief Determines possible values of the samples/bit depth
 	 * 
 	 */
 	short int bitsPerSample; //we expect this to be either 8 or 16. to be used to determine possible sample values
@@ -86,7 +86,7 @@ typedef struct WavHeader {
 	short int subChunk2Size; //this one is used in determining the length of the array
 	
 	//exception checker
-	void checkMetadata();
+	void checkHeader();
 	//operator overloads
 	friend std::ostream& operator<<(std::ostream& out, const WavHeader& metaOut); //For easy display of the wavheader to be contained in the struct
 	
