@@ -15,7 +15,8 @@
  * 
  */
 class WavFile{
-//i know we don't need to say private, but I like it to be explicit
+
+
 	private:
 	/**
 	 * @brief Header struct containing pertinent formatting information.
@@ -24,12 +25,24 @@ class WavFile{
 	WavHeader wavheader;
 
 	/**
-	 * @brief Pointer to the array that will contain the audio data
+	 * @brief Pointer to the array that will contain the audio data to be processed.
 	 * 
 	 */
 	float* audioBuffer = NULL;
+
+	/**
+	 * @brief Pointer to a 16 bit array to be converted to floating point
+	 * 
+	 */
 	short* sixteenBitBuffer = NULL;
+
+	/**
+	 * @brief Pointer to an 8 bit array to be converted to floating point
+	 * 
+	 */
 	char* eightBitBuffer = NULL;
+
+
 	public:
 	//getters & setters
 	
@@ -77,7 +90,18 @@ class WavFile{
 
 	//export methods
 
+	/**
+	 * @brief converts the audio buffer from floating values to 8 bit audio
+	 * 
+	 * @param target the array pointer that the resultant array of 8 bit audio values 
+	 */
 	void exportBuffer(char* target);
+	
+	/**
+	 * @brief converts the audio buffer from floating values to 16 bit audio
+	 * 
+	 * @param target the array pointer that the resultant array of 16 bit audio values 
+	 */
 	void exportBuffer(short* target);
 	
 
@@ -108,7 +132,11 @@ class WavFile{
 	 * @param audioStart: converted into floating points
 	 */
 	WavFile(const WavHeader& newHeader, short* audioStart);
-	
+
+	/**
+	 * @brief Destroy the Wav File object
+	 * 
+	 */
 	~WavFile(){delete audioBuffer; delete eightBitBuffer; delete sixteenBitBuffer;}
 
 };

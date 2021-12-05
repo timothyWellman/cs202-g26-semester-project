@@ -8,8 +8,7 @@ void Compressor::processFile(WavFile& waveFile) {
 
 	runProcessor(waveFile.getBuffer(), waveFile.getWavHeader().subChunk2Size);
 	if(normalizing){
-		findLargestAmplitude(waveFile.getBuffer(), waveFile.getWavHeader().subChunk2Size);
-		Normalization::runProcessor(waveFile.getBuffer(), waveFile.getWavHeader().subChunk2Size);
+		Normalization::processFile(waveFile);
 	}
 }
 

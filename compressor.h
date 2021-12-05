@@ -5,18 +5,45 @@
 #ifndef COMPRESSOR_H
 #define COMPRESSOR_H
 //include statements
-#include "audioprocessor.h"
 #include "normalization.h"
 
-class Compressor: public AudioProcessor, public Normalization {
+class Compressor: public Normalization {
 
 	private: 
+
+	/**
+	 * @brief amount audio samples are pulled toward the threshold
+	 * 
+	 */
 	float dampeningFactor = 0.5;
+
+	/**
+	 * @brief the amplitude at which compression begins to occur
+	 * 
+	 */
 	float threshold = 0.85;
+
+	/**
+	 * @brief Whether the compressor also normalizes
+	 * 
+	 */
 	bool normalizing = 1;
 
 	public:
+
+	/**
+	 * @brief Run the mathematical algorithm applied to the audio
+	 * 
+	 * @param buffer: floating point array of audio values
+	 * @param bufferSize: length of the audio array
+	 */
 	void runProcessor(float* buffer, int bufferSize) override;
+
+	/**
+	 * @brief Function that reads header data, processes the buffer array, and updates header data
+	 * 
+	 * @param waveFile the wavefile object whose buffer and header data are needed for editing/reading
+	 */
 	void processFile(WavFile& waveFile) override;
 
 	/**
