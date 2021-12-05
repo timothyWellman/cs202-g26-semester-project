@@ -4,48 +4,87 @@
 #include <fstream>
 #include "fileManager.h"
 
-void FileManager::readFile(const std::string &fileName){
-	//int MAX_16BIT = 256;
+/**
+ * @brief This checks if the wave file can be opened
+ * 
+ * @param fileName 
+ * @return true if file can be opened
+ * @return false if file cannot be
+ */
+bool FileManager::canOpenFile(const std::string &fileName){
 	std::ifstream inputFile(fileName, std::ios::binary | std::ios::in);
-	short* buffer = nullptr;
+	if(inputFile.is_open()){
+		return true;
+	}
+		return false;
+}
+
+/**
+ * @brief Reads the actual wave file
+ * 
+ * @param fileName 
+ */
+void FileManager::readFile(const std::string &fileName){
+	std::ifstream inputFile(fileName, std::ios::binary | std::ios::in);
+	// short* buffer16 = nullptr;
+	// char* buffer8 = nullptr;
 
 	if(inputFile.is_open()){
 		
 		inputFile.read((char*) &wavHeader, sizeof(wavHeader));
-		buffer = new short[wavHeader.subChunk2Size];
-		inputFile.read((char*) buffer, wavHeader.subChunk2Size /*data bytes*/);
+		if(wavHeader.bitsPerSample == 16){
+			buffer16 = new short[wavHeader.subChunk2Size];
+			inputFile.read((char*) buffer16, wavHeader.subChunk2Size);
+			for(int i = 0; i < wavHeader.subChunk2Size / wavHeader.blockAlign; i++){
+				data.push_back((float)buffer16[i] / 32767);
+			}
 
-		for(int i = 0; i < wavHeader.subChunk2Size / wavHeader.blockAlign/*sample alignment*/; i++){
-			data.push_back((float)buffer[i] / 256);
+		}else if(wavHeader.bitsPerSample == 8){
+			buffer8 = new char[wavHeader.subChunk2Size];
+			inputFile.read((char*) buffer8, wavHeader.subChunk2Size);
+			for(int i = 0; i < wavHeader.subChunk2Size / wavHeader.blockAlign; i++){
+				data.push_back((float)buffer8[i] / 256);
+			}
 		}
 
 		inputFile.close();
 	}
-	//return something if cannot open, for instance i can make the function into a boolean if it makes things easier
-
-	delete[]buffer;
+	delete[]buffer16;
+	delete[]buffer8;
 }
 
-bool absCompare(float a, float b){
-	return std::abs(a) < std::abs(b);
-}
-
+/**
+ * @brief puts in the new data back into the wave file
+ * 
+ * @param oFileName 
+ */
 void FileManager::saveFile(const std::string &oFileName){
 	std::ofstream oFile(oFileName, std::ios::out | std::ios::binary);
 
-	//auto maxLocation = std::max_element(data.begin(), data.end(), absCompare);
-	//float maxVal = *maxLocation;
+	if(wavHeader.bitsPerSample == 16){
+			buffer16 = new short[data.size()];
+			for(int i = 0 ; i < data.size(); i++){
+				buffer16[i] = (short)(data[i] * 32767);
+			}
 
-	auto* buffer = new short[data.size()];
-	for(int i = 0 ; i < data.size(); i++){
-		buffer[i] = (short)(data[i] * 256);
-	}
+			wavHeader.subChunk2Size = data.size() * wavHeader.blockAlign;
+			wavHeader.subChunk1Size = wavHeader.subChunk2Size + 44 - 8;
+			oFile.write((char*)&wavHeader, sizeof(wavHeader));
+			oFile.write((char*)buffer16, wavHeader.subChunk2Size);
 
-	wavHeader.subChunk2Size = data.size() * wavHeader.blockAlign;
-	wavHeader.subChunk1Size /*wave size?*/= wavHeader.subChunk2Size + 44 - 8;
-	oFile.write((char*)&wavHeader, sizeof(wavHeader));
-	oFile.write((char*) buffer , wavHeader.subChunk2Size);
-	
+		}else if(wavHeader.bitsPerSample == 8){
+			buffer8 = new char[data.size()];
+			for(int i = 0 ; i < data.size(); i++){
+				buffer16[i] = (char)(data[i] * 256);
+			}
+
+			wavHeader.subChunk2Size = data.size() * wavHeader.blockAlign;
+			wavHeader.subChunk1Size = wavHeader.subChunk2Size + 44 - 8;
+			oFile.write((char*)&wavHeader, sizeof(wavHeader));
+			oFile.write((char*)buffer8, wavHeader.subChunk2Size);
+
+		}
+
 	oFile.close();
 
 }
