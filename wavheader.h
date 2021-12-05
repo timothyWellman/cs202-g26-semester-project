@@ -7,6 +7,7 @@
 #define WAVHEADER_H
 //include statements
 #include <iostream>
+#include <cmath>
 
 //struct definition
 typedef struct WavHeader {
@@ -22,7 +23,7 @@ typedef struct WavHeader {
 	char chunkId[4]; 
 	
 	/**
-	 * @brief This isn't really going to be useful except for exception throwing for safety: "RIFF" or bust
+	 * @brief This is the size of the file -8 or subChunk2Size + 44 - 8
 	 * 
 	 */
 	int chunkSize; 	
@@ -86,6 +87,11 @@ typedef struct WavHeader {
 	short int subChunk2Size; //this one is used in determining the length of the array
 	
 	//exception checker
+
+	/**
+	 * @brief Function used to check the header upon first getting the values. or to be later gutted for use within the fileManager class
+	 * 
+	 */
 	void checkHeader();
 	//operator overloads
 	friend std::ostream& operator<<(std::ostream& out, const WavHeader& metaOut); //For easy display of the wavheader to be contained in the struct

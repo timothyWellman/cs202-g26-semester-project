@@ -6,7 +6,7 @@
 #include "wavheader.h"
 
 
-//stream output operator for displaying the data formatted for console
+//stream output operator for writing data for file
 std::ostream& operator<<(std::ostream& out, const WavHeader& headerOut){
 
 	for (int i = 0; i<4; i++){out << headerOut.chunkId[i]; }
@@ -44,7 +44,6 @@ std::istream& operator>>(std::istream& in, WavHeader& headerIn){
 	in >> headerIn.bitsPerSample;
 	for (int i = 0; i<4; i++){in >> headerIn.subChunk2Id[i]; }
 	in >> headerIn.subChunk2Size;
-
 	return in;
 }
 
@@ -70,23 +69,31 @@ WavHeader& WavHeader::operator=(const WavHeader& rhs){
 }
 
 void WavHeader::checkHeader(){
-	bool typeError = (0);
-}
-/*
-
-out << "Sample Rate: " << headerOut.sampleRate << std::endl;
-	out << "Bits per Sample: " << headerOut.bitsPerSample << std::endl;
-	out << "Channel number: ";
-	if (headerOut.numChannels == 1){
-		out << "Mono";
-	}else if (headerOut.numChannels == 2) {
-		out << "Stereo";
+	
+	//first we will do the strings, since they are the most mentally taxing
+	std::string stringsToCheck[4] = {std::string(chunkId, 4), std::string(format, 4), std::string(subChunk1Id, 4), std::string(subChunk2Id, 4)};
+	std::string desiredStrings[4] = {std::string("RIFF"), std::string("WAVE"), std::string("fmt "), std::string("data")}; 
+	
+	for(int i = 0; i<4; i++){
+		if (stringsToCheck[i].compare(desiredStrings[i]) != 0){
+			throw std::runtime_error("There was an error reading your data. /nMake sure your file is an 8 or 16 bit .wav file./n");
+		}
 	}
-	out << std::endl;
-	/*
-	Sample Rate: 8800
-	Bits per Sample: 8
-	Channel number: Mono
-	* /
 
-*/
+	//now we will check for the data volume errors & other math checks
+	bool chunkValueCheck = (chunkSize !=(subChunk2Size + 44 - 8) || subChunk1Size != 16);
+	bool blockAlignCheck = blockAlign != numChannels * bitsPerSample/8;
+
+	if(chunkValueCheck || blockAlignCheck){
+		throw std::runtime_error("There was an error reading your data. /nPlease try again./n");
+	}
+
+	//checking the channels and bit depth
+	bool channelCheck = (numChannels != 1 && numChannels != 2);
+	bool bitDepthCheck = (bitsPerSample != 8 && bitsPerSample != 16);
+	if (channelCheck || bitDepthCheck){
+		throw std::runtime_error("There was an error reading your data./nBe sure your file is a 1-2 channel, 8 or 16 bit .wav file./n");
+	}
+
+
+}
