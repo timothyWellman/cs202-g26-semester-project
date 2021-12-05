@@ -5,19 +5,6 @@
 #include "wavfile.h"
 
 //constructor
-WavFile::WavFile(const WavHeader& newHeader,  float* audioStart){
-
-	wavheader = newHeader; //setting the wavheader
-
-	//initializing the buffer array and 
-	audioBuffer = new float[wavheader.subChunk2Size];
-	for (int i = 0; i<wavheader.subChunk2Size; i++){
-		audioBuffer[i] = audioStart[i];//holy crap, this apparently works
-	}
-
-}
-
-//constructor
 WavFile::WavFile(const WavHeader& newHeader,  char* audioStart){
 
 	wavheader = newHeader; //setting the wavheader
