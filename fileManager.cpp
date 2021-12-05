@@ -14,6 +14,7 @@
 bool FileManager::canOpenFile(const std::string &fileName){
 	std::ifstream inputFile(fileName, std::ios::binary | std::ios::in);
 	if(inputFile.is_open()){
+		inputFile.close();
 		return true;
 	}
 		return false;
@@ -26,8 +27,6 @@ bool FileManager::canOpenFile(const std::string &fileName){
  */
 void FileManager::readFile(const std::string &fileName){
 	std::ifstream inputFile(fileName, std::ios::binary | std::ios::in);
-	// short* buffer16 = nullptr;
-	// char* buffer8 = nullptr;
 
 	if(inputFile.is_open()){
 		
