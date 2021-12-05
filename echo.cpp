@@ -48,7 +48,7 @@ void Echo::processFile(WavFile& waveFile){
 	channelNum = waveFile.getWavHeader().numChannels;
 	float* oldBuffer = waveFile.getBuffer();
 	int newBufferLength = waveFile.getWavHeader().subChunk2Size + delay;
-	waveFile.setBuffer(new int[newBufferLength]);
+	waveFile.setBuffer(new float[newBufferLength]);
 
 	for (int i = 0; i < newBufferLength + delay; i++){
 		/*
