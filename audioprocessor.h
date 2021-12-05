@@ -14,8 +14,22 @@ class AudioProcessor {
 	
 	public:
 
+	/**
+	 * @brief Run the mathematical algorithm applied to the audio
+	 * 
+	 * @param buffer: floating point array of audio values
+	 * @param bufferSize: length of the audio array
+	 */
 	virtual void runProcessor(float* buffer, int bufferSize) = 0;
+	
+		/**
+	 * @brief Function that reads header data, processes the buffer array, and updates header data
+	 * 
+	 * @param waveFile the wavefile object whose buffer and header data are needed for editing/reading
+	 */
 	virtual void processFile(WavFile& waveFile);
+	
+	
 	void fixValue(int sample){
 		sample = (sample > 1) ? 1 : sample; //this makes sure the sample does not exit the range of the sound
 		sample = (sample < -1) ? -1 : sample; //likewise for the minimum values

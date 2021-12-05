@@ -5,12 +5,11 @@
 #ifndef LOW_PASS_FILTER_H
 #define LOW_PASS_FILTER_H
 //include Statements
-#include "audioprocessor.h"
-#include "normalization.h"
+#include "echo.h"
 
 
 
-class LowPassFilter: public AudioProcessor, public Normalization {
+class LowPassFilter: public Echo {
 
 	private:
 	/**
@@ -25,14 +24,43 @@ class LowPassFilter: public AudioProcessor, public Normalization {
 	 */
 	int thresholdDelay;
 
+	/**
+	 * @brief number of audio channels of wave file being processed
+	 * 
+	 */
 	char channelNum = 1;
 	
 
 	public:
+
+	/**
+	 * @brief Function that reads header data, processes the buffer array, and updates header data
+	 * 
+	 * @param waveFile the wavefile object whose buffer and header data are needed for editing/reading
+	 */
 	void processFile(WavFile& waveFile) override;
+
+	/**
+	 * @brief Run the mathematical algorithm applied to the audio
+	 * 
+	 * @param buffer: floating point array of audio values
+	 * @param bufferSize: length of the audio array
+	 */
 	void runProcessor( float* buffer, int bufferSize) override;
+
+	/**
+	 * @brief Sets the delay to a value that reduces the threshold frequency to 50% volume
+	 * 
+	 * @param frequency 
+	 * @param header 
+	 */
 	void calculateThresholdDelay(float frequency, const WavHeader& header);
-	void filterFrequency(int currentDelay, int finalDelay, float* buffer, int bufferSize); //recursively called method that runs through each value to get 
+
+	/**
+	 * @brief Construct a new Low Pass Filter object
+	 * 
+	 * @param frequency the desired threshold frequency
+	 */
 	LowPassFilter(float frequency) : thresholdFrequency(frequency){}
 
 };
