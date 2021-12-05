@@ -69,7 +69,7 @@ WavHeader& WavHeader::operator=(const WavHeader& rhs){
 	return *this;
 }
 
-void WavHeader::checkMetadata(){
+void WavHeader::checkHeader(){
 	bool typeError = (0);
 }
 /*
