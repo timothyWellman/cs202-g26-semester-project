@@ -1,32 +1,29 @@
-wav: audioprocessor.o compressor.o echo.o gainadjustment.o lowpassfilter.o normalization.o fileManager.o wavHeader.o wavfile.o
-	g++ -o wav audioprocessor.o compressor.o echo.o gainadjustment.o lowpassfilter.o normalization.o fileManager.o wavHeader.o wavfile.o
+wav: audioprocessor.h compressor.o echo.o gainadjustment.o lowpassfilter.o normalization.o fileManager.o wavHeader.o wavfile.o
+	g++ -o wav compressor.o echo.o gainadjustment.o lowpassfilter.o normalization.o fileManager.o wavHeader.o wavfile.o
 
-audioprocessor.o: audioprocessor.h
-	g++ -c audioprocessor.h
+compressor.o: compressor.cpp compressor.h normalization.o
+	g++ -c compressor.cpp 
 
-compressor.o: compressor.cpp
-	g++ -c compressor.cpp compressor.h
+echo.o: echo.cpp echo.h normalization.o
+	g++ -c echo.cpp
 
-echo.o: echo.cpp
-	g++ -c echo.cpp echo.h
+gainadjustment.o: gainadjustment.cpp gainadjustment.h audioprocessor.o
+	g++ -c gainadjustment.cpp
 
-gainadjustment.o: gainadjustment.cpp
-	g++ -c gainadjustment.cpp gainadjustment.h
+lowpassfilter.o: lowpassfilter.cpp lowpassfilter.h normalization.o
+	g++ -c lowpassfilter.cpp 
 
-lowpassfilter.o: lowpassfilter.cpp
-	g++ -c lowpassfilter.cpp lowpassfilter.h
+normalization.o: normalization.cpp normalization.h audioprocessor.o
+	g++ -c normalization.cpp
 
-normalization.o: normalization.cpp
-	g++ -c normalization.cpp normalization.h
+fileManager.o: fileManager.cpp fileManager.h
+	g++ -c fileManager.cpp
 
-fileManager.o: fileManager.cpp
-	g++ -c fileManager.cpp fileManager.h
+wavHeader.o: wavheader.cpp wavheader.h
+	g++ -c wavheader.cpp
 
-wavHeader.o: wavheader.cpp
-	g++ -c wavheader.cpp wavheader.h
-
-wavfile.o: wavfile.cpp
-	g++ -c wavfile.cpp wavfile.h
+wavfile.o: wavfile.cpp wavfile.h wavHeader.o
+	g++ -c wavfile.cpp
 
 clean:
 	rm *.o *.h.gch
