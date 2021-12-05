@@ -81,26 +81,48 @@ typedef struct WavHeader {
 	 * 
 	 */
 	short int bitsPerSample; //we expect this to be either 8 or 16. to be used to determine possible sample values
-	
+
+	/**
+	 * @brief Really just has to be "data" or an exception is needed.
+	 * 
+	 */
 	char subChunk2Id[4]; //nice and easy: "data" or bust
 	
+	/**
+	 * @brief The length of the buffer array
+	 * 
+	 */
 	short int subChunk2Size; //this one is used in determining the length of the array
 	
 	//exception checker
 
 	/**
-	 * @brief Function used to check the header upon first getting the values. or to be later gutted for use within the fileManager class
+	 * @brief Function used to check the header upon first getting the values.
 	 * 
 	 */
 	void checkHeader();
 	//operator overloads
+
+	/**
+	 * @brief Optional use of the output stream to write to the file. not needed but fun to write
+	 * 
+	 * @param out 
+	 * @param metaOut 
+	 * @return std::ostream& 
+	 */
 	friend std::ostream& operator<<(std::ostream& out, const WavHeader& metaOut); //For easy display of the wavheader to be contained in the struct
 	
+	/**
+	 * @brief Similar to the ostream overload, this isn't needed, but should work to read in from a file
+	 * 
+	 * @param in 
+	 * @param metaIn 
+	 * @return std::istream& 
+	 */
 	friend std::istream& operator>>(std::istream& in, WavHeader& metaIn);//for easy scanning into from the file
 
 	WavHeader& operator=(const WavHeader& rhs); //this is mostly for ease of making the wavefile 
 }WavHeader;
 
-//operator overloads for those tasty brownie points 
 
 #endif

@@ -43,7 +43,7 @@ void WavFile::setBuffer(char* newArray){
 	}
 }
 
-void WavFile::setBuffer(int* newArray){
+void WavFile::setBuffer(short* newArray){
 	//initializing the buffer array and 
 	audioBuffer = new float[wavheader.subChunk2Size];
 	for (int i = 0; i<wavheader.subChunk2Size; i++){

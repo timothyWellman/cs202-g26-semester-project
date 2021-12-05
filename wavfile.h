@@ -17,7 +17,16 @@
 class WavFile{
 //i know we don't need to say private, but I like it to be explicit
 	private:
+	/**
+	 * @brief Header struct containing pertinent formatting information.
+	 * 
+	 */
 	WavHeader wavheader;
+
+	/**
+	 * @brief Pointer to the array that will contain the audio data
+	 * 
+	 */
 	float* audioBuffer = NULL;
 	short* sixteenBitBuffer = NULL;
 	char* eightBitBuffer = NULL;
@@ -41,7 +50,7 @@ class WavFile{
 	/**
 	 * @brief Get the address of the array of audio samples
 	 * 
-	 * @return int array pointer
+	 * @return float array pointer
 	 */
 	float* getBuffer() const {return audioBuffer;}
 
@@ -57,7 +66,7 @@ class WavFile{
 	 * 
 	 * @param newArray: an array of integer audio values
 	 */
-	void setBuffer(int* newArray);
+	void setBuffer(short* newArray);
 
 	/**
 	 * @brief Set the Buffer array of floating point integers from 8 bit char audio values
