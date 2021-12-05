@@ -5,11 +5,11 @@
 #ifndef NORMALIZATION_H
 #define NORMALIZATION_H
 //include statements
-#include "gainadjustment.h"
+#include "audioprocessor.h"
 #include "wavfile.h"
 
 //class definition
-class Normalization: public GainAdjustment {
+class Normalization: public AudioProcessor {
 	
 	private:
 
