@@ -93,7 +93,7 @@ typedef struct WavHeader {
 	friend std::istream& operator>>(std::istream& in, WavHeader& metaIn);//for easy scanning into from the file
 
 	WavHeader& operator=(const WavHeader& rhs); //this is mostly for ease of making the wavefile 
-};
+}WavHeader;
 
 //operator overloads for those tasty brownie points 
 
