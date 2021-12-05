@@ -57,7 +57,7 @@ class WavFile{
 	 * 
 	 * @param newArray: an array of integer audio values
 	 */
-	void setBuffer(short* newArray);
+	void setBuffer(int* newArray);
 
 	/**
 	 * @brief Set the Buffer array of floating point integers from 8 bit char audio values
