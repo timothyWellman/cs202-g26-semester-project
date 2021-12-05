@@ -7,13 +7,13 @@ compressor.o: compressor.cpp compressor.h normalization.o
 echo.o: echo.cpp echo.h normalization.o
 	g++ -c echo.cpp
 
-gainadjustment.o: gainadjustment.cpp gainadjustment.h audioprocessor.o
+gainadjustment.o: gainadjustment.cpp gainadjustment.h audioprocessor.h
 	g++ -c gainadjustment.cpp
 
 lowpassfilter.o: lowpassfilter.cpp lowpassfilter.h normalization.o
 	g++ -c lowpassfilter.cpp 
 
-normalization.o: normalization.cpp normalization.h audioprocessor.o
+normalization.o: normalization.cpp normalization.h audioprocessor.h
 	g++ -c normalization.cpp
 
 fileManager.o: fileManager.cpp fileManager.h
