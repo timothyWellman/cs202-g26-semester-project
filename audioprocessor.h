@@ -37,9 +37,6 @@ class AudioProcessor {
 
 };
 
-void AudioProcessor::processFile(WavFile& waveFile){
-	runProcessor(waveFile.getBuffer(), waveFile.getWavHeader().subChunk2Size);
-}
 
 
 #endif
