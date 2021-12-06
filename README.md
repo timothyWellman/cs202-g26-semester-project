@@ -20,7 +20,7 @@ The contribution of each team member
 	
 A UML diagram showing the basic design
 
-![UML Diagram](/assets/g26UML.png)
+![UML Diagram: See g26UML.png](/assets/g26UML.png)
 
 
 
@@ -31,7 +31,7 @@ A section detailing issues, including any functionality that is missing
 
 A section detailing the challenges that you encountered in the project
 
-	Timothy: finding low-pass filter algorithms that explain things beyond "well, you're probably going to want to phase shift somewhere" or "well, here's a circuit diagram. good luck with the digitizing." Similar issues with the compressor.
+	Timothy: finding algorithms that explain themselves to a useful degree.
 
 
 
