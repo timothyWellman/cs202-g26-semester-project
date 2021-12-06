@@ -20,7 +20,7 @@ The contribution of each team member
 	
 A UML diagram showing the basic design
 
-
+![UML Diagram](/assets/UML Diagram.png)
 
 
 
@@ -37,6 +37,7 @@ A section detailing the challenges that you encountered in the project
 
 Instructions for building the application if anything is required beyond make
 
+	Currently there are no additional steps required.
 
 
 
