@@ -63,6 +63,8 @@ class LowPassFilter: public Echo {
 	 */
 	LowPassFilter(float frequency) : thresholdFrequency(frequency){}
 
+	LowPassFilter() = default;
+
 };
 
 #endif

@@ -35,6 +35,8 @@ class AudioProcessor {
 		sample = (sample < -1) ? -1 : sample; //likewise for the minimum values
 	}
 
+	AudioProcessor() = default;
+
 };
 
 

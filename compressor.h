@@ -57,7 +57,7 @@ class Compressor: public Normalization {
 	 */
 	Compressor(float dampener, float newThreshold, bool willNormalize) : dampeningFactor(dampener), threshold(newThreshold), normalizing(willNormalize) {}
 	
-
+	Compressor() = default;
 };
 
 

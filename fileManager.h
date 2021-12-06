@@ -1,6 +1,6 @@
 //Rubi Dionisio
 #ifndef FILEMANAGER_H
-#define FILEMANAAGER_H
+#define FILEMANAGER_H
 
 #include <vector>
 #include <string>

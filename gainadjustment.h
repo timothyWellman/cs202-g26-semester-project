@@ -2,8 +2,8 @@
 //header for echo processor object
 //Timothy Wellman
 //inclusion protection
-#ifndef ECHO_H
-#define ECHO_H
+#ifndef GAIN_ADJUSTMENT_H
+#define GAIN_ADJUSTMENT_H
 //include statements
 #include "audioprocessor.h"
 #include "wavfile.h"
@@ -43,6 +43,8 @@ class GainAdjustment: public AudioProcessor {
  * @param newScale amount the audio will be scaled by
  */
 	GainAdjustment(float newScale){scalingFactor = newScale;}
+
+	GainAdjustment() = default;
 };
 
 #endif
