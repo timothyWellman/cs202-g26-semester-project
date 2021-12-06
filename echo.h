@@ -23,13 +23,13 @@ class Echo: public Normalization {
 	 * @brief time in seconds between call and callback
 	 * 
 	 */
-	float delayInSeconds = 0;
+	float delayInSeconds = 0.5;
 
 	/**
 	 * @brief how much the callback is decreased by. expected values: [0,1]
 	 * 
 	 */
-	float decay = 0.0;
+	float decay = 0.5;
 
 	/**
 	 * @brief number of channels of the audio array being processed

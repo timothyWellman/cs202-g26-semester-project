@@ -17,7 +17,7 @@ class GainAdjustment: public AudioProcessor {
 	 * @brief amount the audio will be scaled by
 	 * 
 	 */
-	float scalingFactor;
+	float scalingFactor = 1.0f;
 	
 	public:
 
