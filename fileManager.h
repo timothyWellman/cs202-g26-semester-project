@@ -5,7 +5,6 @@
 #include <vector>
 #include <string>
 #include "wavheader.h"
-#include "wavfile.h"
 
 class FileManager{
 	private:
