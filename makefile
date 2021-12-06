@@ -1,5 +1,5 @@
 wav: audioprocessor.h compressor.o echo.o gainadjustment.o lowpassfilter.o normalization.o fileManager.o wavheader.o wavfile.o
-	g++ -o wav compressor.o echo.o gainadjustment.o lowpassfilter.o normalization.o fileManager.o wavheader.o wavfile.o
+	g++ -o wav_processor main.cpp compressor.o echo.o gainadjustment.o lowpassfilter.o normalization.o fileManager.o wavheader.o wavfile.o
 
 compressor.o: compressor.cpp compressor.h normalization.o
 	g++ -c compressor.cpp 
