@@ -12,7 +12,7 @@ The full names of each team member
 	
 The contribution of each team member
 	
-	Timothy: Processors, wav file object, header struct
+	Timothy: Processors, wav file object, header struct, UML Diagram
 	Rubi: File Manager
 	Kevin: UI and Menu Logic
 	
