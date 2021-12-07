@@ -26,4 +26,4 @@ wavfile.o: wavfile.cpp wavfile.h wavheader.o
 	g++ -c wavfile.cpp
 
 clean:
-	rm *.o
+	rm wav_processor *.o

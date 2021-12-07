@@ -30,7 +30,14 @@ void FileManager::readFile(const std::string &fileName){
 
 	if(inputFile.is_open()){
 		
-		inputFile.read((char*) &wavHeader, sizeof(wavHeader));
+		//inputFile.read((char*) &wavHeader, sizeof(wavHeader));
+		inputFile >> wavHeader;
+
+		try{
+			wavHeader.checkHeader();
+
+		}
+		catch (std::runtime_error& a){std::cout << a.what() << std::endl;}
 		if(wavHeader.bitsPerSample == 16){
 			buffer16 = new short[wavHeader.subChunk2Size];
 			inputFile.read((char*) buffer16, wavHeader.subChunk2Size);
@@ -48,8 +55,8 @@ void FileManager::readFile(const std::string &fileName){
 
 		inputFile.close();
 	}
-	delete[]buffer16;
-	delete[]buffer8;
+	// delete[]buffer16;
+	// delete[]buffer8;
 }
 
 /**
@@ -88,18 +95,38 @@ void FileManager::saveFile(const std::string &oFileName){
 
 }
 
+/**
+ * @brief sets the vecotr of data
+ * 
+ * @param newVector a float of vectors
+ */
 void FileManager::setData(const std::vector<float>& newVector){
 	data = newVector;
 }
 
+/**
+ * @brief sets the wavHeader
+ * 
+ * @param newWavHeader 
+ */
 void FileManager::setwavHeader(const WavHeader& newWavHeader){
 	wavHeader = newWavHeader;
 }
 
+/**
+ * @brief returns data
+ * 
+ * @return float* 
+ */
 float* FileManager::getData(){
 	return &data[0];
 }
 
+/**
+ * @brief returns the wav header
+ * 
+ * @return WavHeader 
+ */
 WavHeader FileManager::getwavHeader(){
 	return wavHeader;
 }

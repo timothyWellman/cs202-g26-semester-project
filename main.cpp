@@ -43,6 +43,7 @@ int main(){
         cout << "Stereo or Mono : " << (file.getWavHeader().numChannels == 1 ? "Mono":"Stereo") << endl;
         cout << endl;
         
+        cout << file.getWavHeader().subChunk2Size;
         string action;
 
         while(action != "q" || action != "quit"){
