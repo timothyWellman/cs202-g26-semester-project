@@ -20,6 +20,9 @@ class FileManager{
 	void readFile(const std::string &fileName);
 	void saveFile(const std::string &oFileName);
 
+	void setData(const std::vector<float>& newVector);
+	void setwavHeader(const WavHeader& newWavHeader);
+
 	float* getData();
 	WavHeader getwavHeader();
 	

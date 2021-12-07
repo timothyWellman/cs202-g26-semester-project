@@ -88,6 +88,14 @@ void FileManager::saveFile(const std::string &oFileName){
 
 }
 
+void FileManager::setData(const std::vector<float>& newVector){
+	data = newVector;
+}
+
+void FileManager::setwavHeader(const WavHeader& newWavHeader){
+	wavHeader = newWavHeader;
+}
+
 float* FileManager::getData(){
 	return &data[0];
 }
