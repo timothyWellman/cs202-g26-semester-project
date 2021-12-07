@@ -84,6 +84,10 @@ void WavHeader::checkHeader(){
 	bool chunkValueCheck = (chunkSize !=(subChunk2Size + 44 - 8) || subChunk1Size != 16);
 	bool blockAlignCheck = blockAlign != numChannels * bitsPerSample/8;
 
+	if (subChunk2Size < 0){
+		throw std::runtime_error("array length error here");
+	}
+
 	if(chunkValueCheck || blockAlignCheck){
 		throw std::runtime_error("There was an error reading your data. /nPlease try again./n");
 	}

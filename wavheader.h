@@ -50,13 +50,13 @@ typedef struct WavHeader {
 	 * @brief We expect this to be 1, unless it is compressed. Not sure how to deal with that yet.
 	 * 
 	 */
-	short int audioFormat; 
+	short audioFormat; 
 	
 	/**
 	 * @brief Number of Channels of audio: important for processors like echo
 	 * 
 	 */
-	short int numChannels; 
+	short numChannels; 
 	
 	/**
 	 * @brief The number of samples taken per second. 
@@ -74,13 +74,13 @@ typedef struct WavHeader {
 	 * @brief NumChannels * BitsPerSample/8
 	 * 
 	 */
-	short int blockAlign; 
+	short blockAlign; 
 	
 	/**
 	 * @brief Determines possible values of the samples/bit depth
 	 * 
 	 */
-	short int bitsPerSample; //we expect this to be either 8 or 16. to be used to determine possible sample values
+	short bitsPerSample; //we expect this to be either 8 or 16. to be used to determine possible sample values
 
 	/**
 	 * @brief Really just has to be "data" or an exception is needed.
@@ -92,7 +92,7 @@ typedef struct WavHeader {
 	 * @brief The length of the buffer array
 	 * 
 	 */
-	short int subChunk2Size; //this one is used in determining the length of the array
+	short subChunk2Size; //this one is used in determining the length of the array
 	
 	//exception checker
 
