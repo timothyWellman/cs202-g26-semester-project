@@ -128,7 +128,7 @@ int main(){
 
             vector<float> newData(file.getBuffer(), file.getBuffer()+file.getWavHeader().subChunk2Size);
             manager.setData(newData);
-            manager.setWavHeader(file.getWavHeader());
+            manager.setwavHeader(file.getWavHeader());
             manager.saveFile(outputFileName+".wav");
             main();
         }
