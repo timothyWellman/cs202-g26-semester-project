@@ -27,7 +27,7 @@ class AudioProcessor {
 	 * 
 	 * @param waveFile the wavefile object whose buffer and header data are needed for editing/reading
 	 */
-	virtual void processFile(WavFile& waveFile);
+	virtual void processFile(WavFile& waveFile) = 0;
 	
 	
 	void fixValue(int sample){

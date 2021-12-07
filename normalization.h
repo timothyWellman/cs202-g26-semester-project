@@ -58,7 +58,7 @@ class Normalization: public AudioProcessor {
 	 * @brief Construct a new Normalization object
 	 * 
 	 */
-	Normalization();
+	Normalization() = default;
 	
 };
 
