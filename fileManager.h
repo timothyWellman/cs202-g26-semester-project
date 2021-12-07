@@ -19,6 +19,8 @@ class FileManager{
 	bool canOpenFile(const std::string &fileName);
 	void readFile(const std::string &fileName);
 	void saveFile(const std::string &oFileName);
+
+	float* getData();
 	
 };
 

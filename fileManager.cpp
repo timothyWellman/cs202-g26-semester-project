@@ -87,3 +87,7 @@ void FileManager::saveFile(const std::string &oFileName){
 	oFile.close();
 
 }
+
+float* FileManager::getData(){
+	return &data[0];
+}
