@@ -122,7 +122,14 @@ int main(){
             }
             choice->processFile(file);
 
-            manager.saveFile(filename);
+            cout << "What name would you like the file to be saved as?";
+            string outputFileName = "";
+            cin >> outputFileName;
+
+            vector<float> newData(file.getBuffer(), file.getBuffer()+file.getWavHeader().subChunk2Size);
+            manager.setData(newData);
+            manager.setWavHeader(file.getWavHeader());
+            manager.saveFile(outputFileName+".wav");
             main();
         }
 
