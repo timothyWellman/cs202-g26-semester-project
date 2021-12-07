@@ -72,7 +72,7 @@ class Echo: public Normalization {
 	 * @param newDelay how many seconds before the callback audio starts
 	 * @param newDecay how much the callback audio is decreased
 	 */
-	Echo(float delaySeconds, float newDecay){delayInSeconds = delaySeconds; decay = std::abs(newDecay);}
+	Echo(float delaySeconds, float newDecay){delayInSeconds = std::abs(delaySeconds); decay = std::abs(newDecay);}
 
 	Echo() = default;
 };

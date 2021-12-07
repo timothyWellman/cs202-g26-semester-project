@@ -86,10 +86,32 @@ int main(){
 
             }
             else if(action == "l" || action == "L"){
-                choice = new LowPassFilter();//threshold frequency, if normalizing
+                cout << "What would you like your threshold frequency to be? Enter your value in hertz." << endl;
+                unsigned int freq = 5000;
+                cin >> freq;
+                cout << "Would you like to normalize the audio after? y/n" << endl;
+                string normalize;
+                bool isNormalizing;
+                cin >> normalize;
+                if (normalize == "y") isNormalizing = true;
+                else if (normalize == "n") isNormalizing = false; 
+                choice = new LowPassFilter(freq, isNormalizing);//threshold frequency, if normalizing
+                
             }
             else if(action == "c" || action == "C"){
-                choice = new Compressor();//threshold volume [0.0,1.0], if normalizing, 
+
+                cout << "How compressed do you want this? Enter a number between 1-100 or 0 for default." << endl;
+                float threshold;
+                cin >> threshold;
+                threshold*=100;
+                cout << "Would you like to normalize the audio after? y/n" << endl;
+                string normalize;
+                bool isNormalizing;
+                cin >> normalize;
+                if (normalize == "y") isNormalizing = true;
+                else if (normalize == "n") isNormalizing = false; 
+
+                choice = new Compressor(threshold, isNormalizing);//threshold volume [0.0,1.0], if normalizing, 
             }
             else if(action == "q" || action == "Q"){
                 return 0;

@@ -29,6 +29,8 @@ class LowPassFilter: public Echo {
 	 * 
 	 */
 	char channelNum = 1;
+
+	bool willNormalize = 1;
 	
 
 	public:
@@ -61,7 +63,7 @@ class LowPassFilter: public Echo {
 	 * 
 	 * @param frequency the desired threshold frequency
 	 */
-	LowPassFilter(float frequency) : thresholdFrequency(frequency){}
+	LowPassFilter(float frequency, bool normalize) : thresholdFrequency(frequency), willNormalize(normalize) {}
 
 	LowPassFilter() = default;
 

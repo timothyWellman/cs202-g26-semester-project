@@ -17,6 +17,7 @@ void LowPassFilter::runProcessor(float* buffer, int bufferSize){
 		if (i>thresholdDelay*channelNum)
 		{
 			buffer[i]+=buffer[i-thresholdDelay*channelNum];
+			buffer[i]*=0.5;
 		}
 	}
 	
@@ -25,5 +26,5 @@ void LowPassFilter::runProcessor(float* buffer, int bufferSize){
 void LowPassFilter::processFile(WavFile& waveFile){
 	calculateThresholdDelay(thresholdFrequency, waveFile.getWavHeader());
 	runProcessor(waveFile.getBuffer(), waveFile.getWavHeader().subChunk2Size);
-	Normalization::processFile(waveFile);
+	if (willNormalize)Normalization::processFile(waveFile);
 }
