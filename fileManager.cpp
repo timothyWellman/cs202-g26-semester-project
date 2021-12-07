@@ -91,3 +91,7 @@ void FileManager::saveFile(const std::string &oFileName){
 float* FileManager::getData(){
 	return &data[0];
 }
+
+WavHeader FileManager::getwavHeader(){
+	return wavHeader;
+}

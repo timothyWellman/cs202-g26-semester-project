@@ -21,6 +21,7 @@ class FileManager{
 	void saveFile(const std::string &oFileName);
 
 	float* getData();
+	WavHeader getwavHeader();
 	
 };
 
