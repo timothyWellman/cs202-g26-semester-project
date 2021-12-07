@@ -29,21 +29,23 @@ int main(){
 
     bool canOpen = manager.canOpenFile(filename);
     if(canOpen){
-        WavFile file;
-        WavHeader header;
-
+        
         manager.readFile(filename);
+        WavFile file(manager.getwavHeader(), manager.getData());
+        
 
         cout << "File metadata:" << endl;
         cout << endl;
 
         cout << "Filename       : " << filename << endl;
-        cout << "Sample Rate    : " << header.sampleRate << endl;
-        cout << "Bits Per Sample: " << header.bitsPerSample << endl;
-        cout << "Stereo or Mono : " << (header.numChannels == 1 ? "Mono":"Stereo") << endl;
+        cout << "Sample Rate    : " << file.getWavHeader().sampleRate << endl;
+        cout << "Bits Per Sample: " << file.getWavHeader().bitsPerSample << endl;
+        cout << "Stereo or Mono : " << (file.getWavHeader().numChannels == 1 ? "Mono":"Stereo") << endl;
         cout << endl;
         
-        while(true){
+        string action;
+
+        while(action != "q" || action != "quit"){
             cout << "\nWhat would you like to do?" << endl;
             cout << endl;
 
@@ -54,28 +56,25 @@ int main(){
             cout << "(C) Compress / Limit" << endl;
             cout << "(Q) Quit" << endl;
 
-            string action;
+            
             cin >> action;
 
+            AudioProcessor* choice = nullptr;
+
             if(action == "n" || action == "N"){
-                Normalization normalize;
-                normalize.processFile(file);
+                choice = new Normalization();
             }
             else if(action == "e" || action == "E"){
-                Echo echo;
-                echo.processFile(file);
+                choice = new Echo();//delay in seconds, loss of return
             }
             else if(action == "g" || action == "G"){
-                GainAdjustment adjustGain;
-                adjustGain.processFile(file);
+                choice = new GainAdjustment();//scaling factor
             }
             else if(action == "l" || action == "L"){
-                LowPassFilter filter;
-                filter.processFile(file);
+                choice = new LowPassFilter();//threshold frequency, if normalizing
             }
             else if(action == "c" || action == "C"){
-                Compressor compress;
-                compress.processFile(file);
+                choice = new Compressor();//threshold volume [0.0,1.0], if normalizing, 
             }
             else if(action == "q" || action == "Q"){
                 return 0;
@@ -84,6 +83,7 @@ int main(){
                 cout << "Input is invalid." << endl;
                 continue;
             }
+            choice->processFile(file);
 
             manager.saveFile(filename);
             main();

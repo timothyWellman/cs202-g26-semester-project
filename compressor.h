@@ -55,7 +55,7 @@ class Compressor: public Normalization {
 	 * 
 	 * @param willNormalize: whether or not, after compressing, the audio will be brought back up with a normalization algorithm
 	 */
-	Compressor(float dampener, float newThreshold, bool willNormalize) : dampeningFactor(dampener), threshold(newThreshold), normalizing(willNormalize) {}
+	Compressor(float newThreshold, bool willNormalize) : threshold(newThreshold), normalizing(willNormalize) {}
 	
 	Compressor() = default;
 };
