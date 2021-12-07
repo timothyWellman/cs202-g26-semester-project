@@ -66,9 +66,24 @@ int main(){
             }
             else if(action == "e" || action == "E"){
                 choice = new Echo();//delay in seconds, loss of return
+                cout << "How much would you like the delay to be? (This is going to be in seconds)" << endl;
+                float delay;
+                cin >> delay;
+                cout << "What would you like the decay to be?" << endl;
+                float decay;
+                cin >> decay;
+                
+                Echo echo(delay, decay);
+
             }
             else if(action == "g" || action == "G"){
                 choice = new GainAdjustment();//scaling factor
+                cout << "How much would you like the adjustment to be?" << endl;
+                float scale;
+                cin >> scale;
+
+                GainAdjustment gAdjustment(scale);
+
             }
             else if(action == "l" || action == "L"){
                 choice = new LowPassFilter();//threshold frequency, if normalizing
