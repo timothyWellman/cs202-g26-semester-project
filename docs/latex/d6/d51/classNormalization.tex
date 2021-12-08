@@ -1,0 +1,115 @@
+\hypertarget{classNormalization}{}\doxysection{Normalization Class Reference}
+\label{classNormalization}\index{Normalization@{Normalization}}
+
+
+{\ttfamily \#include $<$normalization.\+h$>$}
+
+
+
+Inheritance diagram for Normalization\+:
+% FIG 0
+
+
+Collaboration diagram for Normalization\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \mbox{\hyperlink{classNormalization_ae032f62275911a18ba0880a81431c943}{run\+Processor}} (float $\ast$buffer, int buffer\+Size) override
+\begin{DoxyCompactList}\small\item\em Run the mathematical algorithm applied to the audio. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classNormalization_a9b98d4cca603911cc8108fd663dff2b3}{process\+File}} (\mbox{\hyperlink{classWavFile}{Wav\+File}} \&wave\+File) override
+\begin{DoxyCompactList}\small\item\em Function that reads header data, processes the buffer array, and updates header data. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classNormalization_aec66e98aa333780fefe27061ccf7f9c5}{find\+Largest\+Amplitude}} (float $\ast$buffer, int buffer\+Size)
+\begin{DoxyCompactList}\small\item\em scans an array for the farthest value from 0 \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classNormalization_a724a3e8f4a639c5a387e16cfc1283312}{Normalization}} ()=default
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{classNormalization}{Normalization}} object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classNormalization_a724a3e8f4a639c5a387e16cfc1283312}\label{classNormalization_a724a3e8f4a639c5a387e16cfc1283312}} 
+\index{Normalization@{Normalization}!Normalization@{Normalization}}
+\index{Normalization@{Normalization}!Normalization@{Normalization}}
+\doxysubsubsection{\texorpdfstring{Normalization()}{Normalization()}}
+{\footnotesize\ttfamily Normalization\+::\+Normalization (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+Construct a new \mbox{\hyperlink{classNormalization}{Normalization}} object. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classNormalization_aec66e98aa333780fefe27061ccf7f9c5}\label{classNormalization_aec66e98aa333780fefe27061ccf7f9c5}} 
+\index{Normalization@{Normalization}!findLargestAmplitude@{findLargestAmplitude}}
+\index{findLargestAmplitude@{findLargestAmplitude}!Normalization@{Normalization}}
+\doxysubsubsection{\texorpdfstring{findLargestAmplitude()}{findLargestAmplitude()}}
+{\footnotesize\ttfamily float Normalization\+::find\+Largest\+Amplitude (\begin{DoxyParamCaption}\item[{float $\ast$}]{buffer,  }\item[{int}]{buffer\+Size }\end{DoxyParamCaption})}
+
+
+
+scans an array for the farthest value from 0 
+
+
+\begin{DoxyParams}{Parameters}
+{\em buffer} & array being scanned \\
+\hline
+{\em buffer\+Size} & length of array \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+value of the highest/lowest audio sample 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classNormalization_a9b98d4cca603911cc8108fd663dff2b3}\label{classNormalization_a9b98d4cca603911cc8108fd663dff2b3}} 
+\index{Normalization@{Normalization}!processFile@{processFile}}
+\index{processFile@{processFile}!Normalization@{Normalization}}
+\doxysubsubsection{\texorpdfstring{processFile()}{processFile()}}
+{\footnotesize\ttfamily void Normalization\+::process\+File (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classWavFile}{Wav\+File}} \&}]{wave\+File }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Function that reads header data, processes the buffer array, and updates header data. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em wave\+File} & the wavefile object whose buffer and header data are needed for editing/reading \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classAudioProcessor_aa53ecb88426cd440a04cc2fa782aa7bd}{Audio\+Processor}}.
+
+
+
+Reimplemented in \mbox{\hyperlink{classEcho_af482f5b625cca570c0caaccb6c3d1f5c}{Echo}}, \mbox{\hyperlink{classCompressor_adb9c9bd1b514c83b2c3ded324b89c795}{Compressor}}, and \mbox{\hyperlink{classLowPassFilter_aaf11526086ce37b102fa1aa870ce6373}{Low\+Pass\+Filter}}.
+
+\mbox{\Hypertarget{classNormalization_ae032f62275911a18ba0880a81431c943}\label{classNormalization_ae032f62275911a18ba0880a81431c943}} 
+\index{Normalization@{Normalization}!runProcessor@{runProcessor}}
+\index{runProcessor@{runProcessor}!Normalization@{Normalization}}
+\doxysubsubsection{\texorpdfstring{runProcessor()}{runProcessor()}}
+{\footnotesize\ttfamily void Normalization\+::run\+Processor (\begin{DoxyParamCaption}\item[{float $\ast$}]{buffer,  }\item[{int}]{buffer\+Size }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Run the mathematical algorithm applied to the audio. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em buffer} & floating point array of audio values \\
+\hline
+{\em buffer\+Size} & length of the audio array \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classAudioProcessor_aee6879e7ac4bcebb1a6301fc42804109}{Audio\+Processor}}.
+
+
+
+Reimplemented in \mbox{\hyperlink{classLowPassFilter_a7b862f4067ba6fad5f263be1d0408eca}{Low\+Pass\+Filter}}, \mbox{\hyperlink{classEcho_a127e8e7229312251e15a56d8de16e6d0}{Echo}}, and \mbox{\hyperlink{classCompressor_a72c544985b3bed68e576ed1ed94e9846}{Compressor}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{normalization_8h}{normalization.\+h}}\item 
+\mbox{\hyperlink{normalization_8cpp}{normalization.\+cpp}}\end{DoxyCompactItemize}

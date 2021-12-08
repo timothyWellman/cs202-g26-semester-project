@@ -20,7 +20,7 @@ The contribution of each team member
 	
 A UML diagram showing the basic design
 
-![UML Diagram: See g26UML.png](/assets/g26UML.png)
+![UML Diagram: See g26UML.png](/g26UML.png)
 
 
 

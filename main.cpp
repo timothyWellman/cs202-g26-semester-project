@@ -123,7 +123,7 @@ int main(){
             }
             choice->processFile(file);
 
-            cout << "What name would you like the file to be saved as?";
+            cout << "What name would you like the file to be saved as?" << endl;
             string outputFileName = "";
             cin >> outputFileName;
 

@@ -1,0 +1,102 @@
+\hypertarget{classCompressor}{}\doxysection{Compressor Class Reference}
+\label{classCompressor}\index{Compressor@{Compressor}}
+
+
+{\ttfamily \#include $<$compressor.\+h$>$}
+
+
+
+Inheritance diagram for Compressor\+:
+% FIG 0
+
+
+Collaboration diagram for Compressor\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classCompressor_a72c544985b3bed68e576ed1ed94e9846}{run\+Processor}} (float $\ast$buffer, int buffer\+Size) override
+\begin{DoxyCompactList}\small\item\em Run the mathematical algorithm applied to the audio. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCompressor_adb9c9bd1b514c83b2c3ded324b89c795}{process\+File}} (\mbox{\hyperlink{classWavFile}{Wav\+File}} \&wave\+File) override
+\begin{DoxyCompactList}\small\item\em Function that reads header data, processes the buffer array, and updates header data. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classCompressor_ac149ab88821daf3708a7b30d3a322d71}{Compressor}} (float new\+Threshold, bool will\+Normalize)
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{classCompressor}{Compressor}} object. This assumes calculations have been pre-\/made to fit algorithms. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classCompressor_ae26b3c2f2437fbf064841ba60ab0dcd2}{Compressor}} ()=default
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classCompressor_ac149ab88821daf3708a7b30d3a322d71}\label{classCompressor_ac149ab88821daf3708a7b30d3a322d71}} 
+\index{Compressor@{Compressor}!Compressor@{Compressor}}
+\index{Compressor@{Compressor}!Compressor@{Compressor}}
+\doxysubsubsection{\texorpdfstring{Compressor()}{Compressor()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Compressor\+::\+Compressor (\begin{DoxyParamCaption}\item[{float}]{new\+Threshold,  }\item[{bool}]{will\+Normalize }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Construct a new \mbox{\hyperlink{classCompressor}{Compressor}} object. This assumes calculations have been pre-\/made to fit algorithms. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dampener} & the ratio by which the audio above a certain level will be dropped toward the (0$<$dampener$<$1)\\
+\hline
+{\em new\+Threshold} & the maximum volume at which no noise reduction will occur\\
+\hline
+{\em will\+Normalize} & whether or not, after compressing, the audio will be brought back up with a normalization algorithm \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classCompressor_ae26b3c2f2437fbf064841ba60ab0dcd2}\label{classCompressor_ae26b3c2f2437fbf064841ba60ab0dcd2}} 
+\index{Compressor@{Compressor}!Compressor@{Compressor}}
+\index{Compressor@{Compressor}!Compressor@{Compressor}}
+\doxysubsubsection{\texorpdfstring{Compressor()}{Compressor()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Compressor\+::\+Compressor (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classCompressor_adb9c9bd1b514c83b2c3ded324b89c795}\label{classCompressor_adb9c9bd1b514c83b2c3ded324b89c795}} 
+\index{Compressor@{Compressor}!processFile@{processFile}}
+\index{processFile@{processFile}!Compressor@{Compressor}}
+\doxysubsubsection{\texorpdfstring{processFile()}{processFile()}}
+{\footnotesize\ttfamily void Compressor\+::process\+File (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classWavFile}{Wav\+File}} \&}]{wave\+File }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Function that reads header data, processes the buffer array, and updates header data. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em wave\+File} & the wavefile object whose buffer and header data are needed for editing/reading \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{classNormalization_a9b98d4cca603911cc8108fd663dff2b3}{Normalization}}.
+
+\mbox{\Hypertarget{classCompressor_a72c544985b3bed68e576ed1ed94e9846}\label{classCompressor_a72c544985b3bed68e576ed1ed94e9846}} 
+\index{Compressor@{Compressor}!runProcessor@{runProcessor}}
+\index{runProcessor@{runProcessor}!Compressor@{Compressor}}
+\doxysubsubsection{\texorpdfstring{runProcessor()}{runProcessor()}}
+{\footnotesize\ttfamily void Compressor\+::run\+Processor (\begin{DoxyParamCaption}\item[{float $\ast$}]{buffer,  }\item[{int}]{buffer\+Size }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Run the mathematical algorithm applied to the audio. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em buffer} & floating point array of audio values \\
+\hline
+{\em buffer\+Size} & length of the audio array \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{classNormalization_ae032f62275911a18ba0880a81431c943}{Normalization}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{compressor_8h}{compressor.\+h}}\item 
+\mbox{\hyperlink{compressor_8cpp}{compressor.\+cpp}}\end{DoxyCompactItemize}

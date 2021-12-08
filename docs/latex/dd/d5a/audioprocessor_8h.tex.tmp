@@ -1,0 +1,14 @@
+\hypertarget{audioprocessor_8h}{}\doxysection{audioprocessor.\+h File Reference}
+\label{audioprocessor_8h}\index{audioprocessor.h@{audioprocessor.h}}
+{\ttfamily \#include \char`\"{}wavheader.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}wavfile.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$cmath$>$}\newline
+Include dependency graph for audioprocessor.\+h\+:
+% FIG 0
+This graph shows which files directly or indirectly include this file\+:
+% FIG 1
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classAudioProcessor}{Audio\+Processor}}
+\end{DoxyCompactItemize}

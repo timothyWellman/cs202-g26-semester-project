@@ -1,0 +1,127 @@
+\hypertarget{classEcho}{}\doxysection{Echo Class Reference}
+\label{classEcho}\index{Echo@{Echo}}
+
+
+{\ttfamily \#include $<$echo.\+h$>$}
+
+
+
+Inheritance diagram for Echo\+:
+% FIG 0
+
+
+Collaboration diagram for Echo\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \mbox{\hyperlink{classEcho_a127e8e7229312251e15a56d8de16e6d0}{run\+Processor}} (float $\ast$buffer, int buffer\+Size) override
+\begin{DoxyCompactList}\small\item\em Run the mathematical algorithm applied to the audio\+: unused in this processor. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classEcho_af482f5b625cca570c0caaccb6c3d1f5c}{process\+File}} (\mbox{\hyperlink{classWavFile}{Wav\+File}} \&wave\+File) override
+\begin{DoxyCompactList}\small\item\em Function that reads header data, processes the buffer array, and updates header data to account for echo delay. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classEcho_afc106e7b655e697a14e4bd0042708195}{Echo}} (unsigned int new\+Delay, float new\+Decay)
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{classEcho}{Echo}} object\+: not expected to be used. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classEcho_a2bea219cf25c467a055003efcd2cb5d9}{Echo}} (float delay\+Seconds, float new\+Decay)
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{classEcho}{Echo}} object\+: the preferable one. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classEcho_a813084d3f6368f7e94d3f2578f7bf785}{Echo}} ()=default
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classEcho_afc106e7b655e697a14e4bd0042708195}\label{classEcho_afc106e7b655e697a14e4bd0042708195}} 
+\index{Echo@{Echo}!Echo@{Echo}}
+\index{Echo@{Echo}!Echo@{Echo}}
+\doxysubsubsection{\texorpdfstring{Echo()}{Echo()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily Echo\+::\+Echo (\begin{DoxyParamCaption}\item[{unsigned int}]{new\+Delay,  }\item[{float}]{new\+Decay }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Construct a new \mbox{\hyperlink{classEcho}{Echo}} object\+: not expected to be used. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+Delay} & number of samples per channel the delay would take \\
+\hline
+{\em new\+Decay} & how much the callback audio is decreased \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classEcho_a2bea219cf25c467a055003efcd2cb5d9}\label{classEcho_a2bea219cf25c467a055003efcd2cb5d9}} 
+\index{Echo@{Echo}!Echo@{Echo}}
+\index{Echo@{Echo}!Echo@{Echo}}
+\doxysubsubsection{\texorpdfstring{Echo()}{Echo()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily Echo\+::\+Echo (\begin{DoxyParamCaption}\item[{float}]{delay\+Seconds,  }\item[{float}]{new\+Decay }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Construct a new \mbox{\hyperlink{classEcho}{Echo}} object\+: the preferable one. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+Delay} & how many seconds before the callback audio starts \\
+\hline
+{\em new\+Decay} & how much the callback audio is decreased \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classEcho_a813084d3f6368f7e94d3f2578f7bf785}\label{classEcho_a813084d3f6368f7e94d3f2578f7bf785}} 
+\index{Echo@{Echo}!Echo@{Echo}}
+\index{Echo@{Echo}!Echo@{Echo}}
+\doxysubsubsection{\texorpdfstring{Echo()}{Echo()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily Echo\+::\+Echo (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classEcho_af482f5b625cca570c0caaccb6c3d1f5c}\label{classEcho_af482f5b625cca570c0caaccb6c3d1f5c}} 
+\index{Echo@{Echo}!processFile@{processFile}}
+\index{processFile@{processFile}!Echo@{Echo}}
+\doxysubsubsection{\texorpdfstring{processFile()}{processFile()}}
+{\footnotesize\ttfamily void Echo\+::process\+File (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classWavFile}{Wav\+File}} \&}]{wave\+File }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Function that reads header data, processes the buffer array, and updates header data to account for echo delay. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em wave\+File} & the wavefile object whose buffer and header data are needed for editing/reading \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{classNormalization_a9b98d4cca603911cc8108fd663dff2b3}{Normalization}}.
+
+
+
+Reimplemented in \mbox{\hyperlink{classLowPassFilter_aaf11526086ce37b102fa1aa870ce6373}{Low\+Pass\+Filter}}.
+
+\mbox{\Hypertarget{classEcho_a127e8e7229312251e15a56d8de16e6d0}\label{classEcho_a127e8e7229312251e15a56d8de16e6d0}} 
+\index{Echo@{Echo}!runProcessor@{runProcessor}}
+\index{runProcessor@{runProcessor}!Echo@{Echo}}
+\doxysubsubsection{\texorpdfstring{runProcessor()}{runProcessor()}}
+{\footnotesize\ttfamily virtual void Echo\+::run\+Processor (\begin{DoxyParamCaption}\item[{float $\ast$}]{buffer,  }\item[{int}]{buffer\+Size }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Run the mathematical algorithm applied to the audio\+: unused in this processor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em buffer} & floating point array of audio values \\
+\hline
+{\em buffer\+Size} & length of the audio array \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{classNormalization_ae032f62275911a18ba0880a81431c943}{Normalization}}.
+
+
+
+Reimplemented in \mbox{\hyperlink{classLowPassFilter_a7b862f4067ba6fad5f263be1d0408eca}{Low\+Pass\+Filter}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{echo_8h}{echo.\+h}}\item 
+\mbox{\hyperlink{echo_8cpp}{echo.\+cpp}}\end{DoxyCompactItemize}

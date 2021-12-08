@@ -1,0 +1,240 @@
+\hypertarget{classWavFile}{}\doxysection{Wav\+File Class Reference}
+\label{classWavFile}\index{WavFile@{WavFile}}
+
+
+class to store .wav file, containing wavheader and a pointer to dynamically created array of audio samples  
+
+
+
+
+{\ttfamily \#include $<$wavfile.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structWavHeader}{Wav\+Header}} \mbox{\hyperlink{classWavFile_a127f5e038cbd6aa5e751468a5e547067}{get\+Wav\+Header}} () const
+\begin{DoxyCompactList}\small\item\em Get the \mbox{\hyperlink{structWavHeader}{Wav\+Header}} data struct. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classWavFile_ad9ce686274f4ee71637a4ae0d08307a2}{set\+Wav\+Header}} (const \mbox{\hyperlink{structWavHeader}{Wav\+Header}} \&new\+Header)
+\begin{DoxyCompactList}\small\item\em used to reset the wavheader after editing \end{DoxyCompactList}\item 
+float $\ast$ \mbox{\hyperlink{classWavFile_a1cb65808fcdfa4bd8313d5b16a5241ae}{get\+Buffer}} () const
+\begin{DoxyCompactList}\small\item\em Get the address of the array of audio samples. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classWavFile_a7ea1352d91de3e8e5d8e36136d317b3f}{set\+Buffer}} (float $\ast$new\+Array)
+\begin{DoxyCompactList}\small\item\em Set the buffer to a new array. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classWavFile_a0b179e950f6296f07de2fc7bd8fd0099}{set\+Buffer}} (short $\ast$new\+Array)
+\begin{DoxyCompactList}\small\item\em Set the buffer array to be a series of floating values from a 16 or higher bit depth. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classWavFile_a24e37f426c19060eacb9881137d51608}{set\+Buffer}} (char $\ast$new\+Array)
+\begin{DoxyCompactList}\small\item\em Set the Buffer array of floating point integers from 8 bit char audio values. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classWavFile_ab3aaa6fcc3a9c9dbdac32679b918a9ac}{export\+Buffer}} (char $\ast$target)
+\begin{DoxyCompactList}\small\item\em converts the audio buffer from floating values to 8 bit audio \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classWavFile_a5391c9be9ea403c68b2cc56baab21580}{export\+Buffer}} (short $\ast$target)
+\begin{DoxyCompactList}\small\item\em converts the audio buffer from floating values to 16 bit audio \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classWavFile_a41bc44f7a9b972fb7a625f1ea9de694a}{Wav\+File}} ()=default
+\item 
+\mbox{\hyperlink{classWavFile_a341e9afc20f567f568a855dc0edccfba}{Wav\+File}} (const \mbox{\hyperlink{structWavHeader}{Wav\+Header}} \&new\+Header, float $\ast$audio\+Start)
+\begin{DoxyCompactList}\small\item\em Construct a new Wav File object from a header and a pre-\/conpacted float buffer. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classWavFile_a2979bd370466d1834e7dd3e41f50ada2}{Wav\+File}} (const \mbox{\hyperlink{structWavHeader}{Wav\+Header}} \&new\+Header, char $\ast$audio\+Start)
+\begin{DoxyCompactList}\small\item\em Construct a new Wav File object from a header and an 8 bit buffer. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classWavFile_a163db3a789d3bbe0b1e73a89d35062b4}{Wav\+File}} (const \mbox{\hyperlink{structWavHeader}{Wav\+Header}} \&new\+Header, short $\ast$audio\+Start)
+\begin{DoxyCompactList}\small\item\em Construct a new Wav File object from a header and a 16 bit buffer. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classWavFile_ad21c277f6ba3cc6e8ce1b3fe92f3243d}{$\sim$\+Wav\+File}} ()
+\begin{DoxyCompactList}\small\item\em Destroy the Wav File object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+class to store .wav file, containing wavheader and a pointer to dynamically created array of audio samples 
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classWavFile_a41bc44f7a9b972fb7a625f1ea9de694a}\label{classWavFile_a41bc44f7a9b972fb7a625f1ea9de694a}} 
+\index{WavFile@{WavFile}!WavFile@{WavFile}}
+\index{WavFile@{WavFile}!WavFile@{WavFile}}
+\doxysubsubsection{\texorpdfstring{WavFile()}{WavFile()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily Wav\+File\+::\+Wav\+File (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+\mbox{\Hypertarget{classWavFile_a341e9afc20f567f568a855dc0edccfba}\label{classWavFile_a341e9afc20f567f568a855dc0edccfba}} 
+\index{WavFile@{WavFile}!WavFile@{WavFile}}
+\index{WavFile@{WavFile}!WavFile@{WavFile}}
+\doxysubsubsection{\texorpdfstring{WavFile()}{WavFile()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily Wav\+File\+::\+Wav\+File (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structWavHeader}{Wav\+Header}} \&}]{new\+Header,  }\item[{float $\ast$}]{audio\+Start }\end{DoxyParamCaption})}
+
+
+
+Construct a new Wav File object from a header and a pre-\/conpacted float buffer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+Header} & \\
+\hline
+{\em audio\+Start} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classWavFile_a2979bd370466d1834e7dd3e41f50ada2}\label{classWavFile_a2979bd370466d1834e7dd3e41f50ada2}} 
+\index{WavFile@{WavFile}!WavFile@{WavFile}}
+\index{WavFile@{WavFile}!WavFile@{WavFile}}
+\doxysubsubsection{\texorpdfstring{WavFile()}{WavFile()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily Wav\+File\+::\+Wav\+File (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structWavHeader}{Wav\+Header}} \&}]{new\+Header,  }\item[{char $\ast$}]{audio\+Start }\end{DoxyParamCaption})}
+
+
+
+Construct a new Wav File object from a header and an 8 bit buffer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+Header} & \\
+\hline
+{\em audio\+Start} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classWavFile_a163db3a789d3bbe0b1e73a89d35062b4}\label{classWavFile_a163db3a789d3bbe0b1e73a89d35062b4}} 
+\index{WavFile@{WavFile}!WavFile@{WavFile}}
+\index{WavFile@{WavFile}!WavFile@{WavFile}}
+\doxysubsubsection{\texorpdfstring{WavFile()}{WavFile()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily Wav\+File\+::\+Wav\+File (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structWavHeader}{Wav\+Header}} \&}]{new\+Header,  }\item[{short $\ast$}]{audio\+Start }\end{DoxyParamCaption})}
+
+
+
+Construct a new Wav File object from a header and a 16 bit buffer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+Header} & \\
+\hline
+{\em audio\+Start} & converted into floating points \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classWavFile_ad21c277f6ba3cc6e8ce1b3fe92f3243d}\label{classWavFile_ad21c277f6ba3cc6e8ce1b3fe92f3243d}} 
+\index{WavFile@{WavFile}!````~WavFile@{$\sim$WavFile}}
+\index{````~WavFile@{$\sim$WavFile}!WavFile@{WavFile}}
+\doxysubsubsection{\texorpdfstring{$\sim$WavFile()}{~WavFile()}}
+{\footnotesize\ttfamily Wav\+File\+::$\sim$\+Wav\+File (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Destroy the Wav File object. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classWavFile_ab3aaa6fcc3a9c9dbdac32679b918a9ac}\label{classWavFile_ab3aaa6fcc3a9c9dbdac32679b918a9ac}} 
+\index{WavFile@{WavFile}!exportBuffer@{exportBuffer}}
+\index{exportBuffer@{exportBuffer}!WavFile@{WavFile}}
+\doxysubsubsection{\texorpdfstring{exportBuffer()}{exportBuffer()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Wav\+File\+::export\+Buffer (\begin{DoxyParamCaption}\item[{char $\ast$}]{target }\end{DoxyParamCaption})}
+
+
+
+converts the audio buffer from floating values to 8 bit audio 
+
+
+\begin{DoxyParams}{Parameters}
+{\em target} & the array pointer that the resultant array of 8 bit audio values \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classWavFile_a5391c9be9ea403c68b2cc56baab21580}\label{classWavFile_a5391c9be9ea403c68b2cc56baab21580}} 
+\index{WavFile@{WavFile}!exportBuffer@{exportBuffer}}
+\index{exportBuffer@{exportBuffer}!WavFile@{WavFile}}
+\doxysubsubsection{\texorpdfstring{exportBuffer()}{exportBuffer()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Wav\+File\+::export\+Buffer (\begin{DoxyParamCaption}\item[{short $\ast$}]{target }\end{DoxyParamCaption})}
+
+
+
+converts the audio buffer from floating values to 16 bit audio 
+
+
+\begin{DoxyParams}{Parameters}
+{\em target} & the array pointer that the resultant array of 16 bit audio values \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classWavFile_a1cb65808fcdfa4bd8313d5b16a5241ae}\label{classWavFile_a1cb65808fcdfa4bd8313d5b16a5241ae}} 
+\index{WavFile@{WavFile}!getBuffer@{getBuffer}}
+\index{getBuffer@{getBuffer}!WavFile@{WavFile}}
+\doxysubsubsection{\texorpdfstring{getBuffer()}{getBuffer()}}
+{\footnotesize\ttfamily float$\ast$ Wav\+File\+::get\+Buffer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the address of the array of audio samples. 
+
+\begin{DoxyReturn}{Returns}
+float array pointer 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classWavFile_a127f5e038cbd6aa5e751468a5e547067}\label{classWavFile_a127f5e038cbd6aa5e751468a5e547067}} 
+\index{WavFile@{WavFile}!getWavHeader@{getWavHeader}}
+\index{getWavHeader@{getWavHeader}!WavFile@{WavFile}}
+\doxysubsubsection{\texorpdfstring{getWavHeader()}{getWavHeader()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structWavHeader}{Wav\+Header}} Wav\+File\+::get\+Wav\+Header (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the \mbox{\hyperlink{structWavHeader}{Wav\+Header}} data struct. 
+
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{structWavHeader}{Wav\+Header}} of .wav file 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classWavFile_a24e37f426c19060eacb9881137d51608}\label{classWavFile_a24e37f426c19060eacb9881137d51608}} 
+\index{WavFile@{WavFile}!setBuffer@{setBuffer}}
+\index{setBuffer@{setBuffer}!WavFile@{WavFile}}
+\doxysubsubsection{\texorpdfstring{setBuffer()}{setBuffer()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily void Wav\+File\+::set\+Buffer (\begin{DoxyParamCaption}\item[{char $\ast$}]{new\+Array }\end{DoxyParamCaption})}
+
+
+
+Set the Buffer array of floating point integers from 8 bit char audio values. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+Array} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classWavFile_a7ea1352d91de3e8e5d8e36136d317b3f}\label{classWavFile_a7ea1352d91de3e8e5d8e36136d317b3f}} 
+\index{WavFile@{WavFile}!setBuffer@{setBuffer}}
+\index{setBuffer@{setBuffer}!WavFile@{WavFile}}
+\doxysubsubsection{\texorpdfstring{setBuffer()}{setBuffer()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily void Wav\+File\+::set\+Buffer (\begin{DoxyParamCaption}\item[{float $\ast$}]{new\+Array }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Set the buffer to a new array. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+Array} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classWavFile_a0b179e950f6296f07de2fc7bd8fd0099}\label{classWavFile_a0b179e950f6296f07de2fc7bd8fd0099}} 
+\index{WavFile@{WavFile}!setBuffer@{setBuffer}}
+\index{setBuffer@{setBuffer}!WavFile@{WavFile}}
+\doxysubsubsection{\texorpdfstring{setBuffer()}{setBuffer()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily void Wav\+File\+::set\+Buffer (\begin{DoxyParamCaption}\item[{short $\ast$}]{new\+Array }\end{DoxyParamCaption})}
+
+
+
+Set the buffer array to be a series of floating values from a 16 or higher bit depth. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+Array} & an array of integer audio values \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classWavFile_ad9ce686274f4ee71637a4ae0d08307a2}\label{classWavFile_ad9ce686274f4ee71637a4ae0d08307a2}} 
+\index{WavFile@{WavFile}!setWavHeader@{setWavHeader}}
+\index{setWavHeader@{setWavHeader}!WavFile@{WavFile}}
+\doxysubsubsection{\texorpdfstring{setWavHeader()}{setWavHeader()}}
+{\footnotesize\ttfamily void Wav\+File\+::set\+Wav\+Header (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structWavHeader}{Wav\+Header}} \&}]{new\+Header }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+used to reset the wavheader after editing 
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+Header} & \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{wavfile_8h}{wavfile.\+h}}\item 
+\mbox{\hyperlink{wavfile_8cpp}{wavfile.\+cpp}}\end{DoxyCompactItemize}

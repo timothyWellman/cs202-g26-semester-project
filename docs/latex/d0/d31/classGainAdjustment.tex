@@ -1,0 +1,98 @@
+\hypertarget{classGainAdjustment}{}\doxysection{Gain\+Adjustment Class Reference}
+\label{classGainAdjustment}\index{GainAdjustment@{GainAdjustment}}
+
+
+{\ttfamily \#include $<$gainadjustment.\+h$>$}
+
+
+
+Inheritance diagram for Gain\+Adjustment\+:
+% FIG 0
+
+
+Collaboration diagram for Gain\+Adjustment\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \mbox{\hyperlink{classGainAdjustment_a700c01ec8fac6d7bcd2b41eb07315f4f}{run\+Processor}} (float $\ast$buffer, int buffer\+Size) override
+\begin{DoxyCompactList}\small\item\em Run the mathematical algorithm applied to the audio. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classGainAdjustment_ab6fc44d38c7276096f7fcf00734c6209}{process\+File}} (\mbox{\hyperlink{classWavFile}{Wav\+File}} \&wave\+File) override
+\begin{DoxyCompactList}\small\item\em Function that reads header data, processes the buffer array, and updates header data. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classGainAdjustment_a0cc81c81f32c9d4ea95b0ae98740c683}{Gain\+Adjustment}} (float new\+Scale)
+\begin{DoxyCompactList}\small\item\em Construct a new Gain Adjustment object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classGainAdjustment_acb17361e88516b9effd3d4195be1ab9e}{Gain\+Adjustment}} ()=default
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classGainAdjustment_a0cc81c81f32c9d4ea95b0ae98740c683}\label{classGainAdjustment_a0cc81c81f32c9d4ea95b0ae98740c683}} 
+\index{GainAdjustment@{GainAdjustment}!GainAdjustment@{GainAdjustment}}
+\index{GainAdjustment@{GainAdjustment}!GainAdjustment@{GainAdjustment}}
+\doxysubsubsection{\texorpdfstring{GainAdjustment()}{GainAdjustment()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Gain\+Adjustment\+::\+Gain\+Adjustment (\begin{DoxyParamCaption}\item[{float}]{new\+Scale }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Construct a new Gain Adjustment object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+Scale} & amount the audio will be scaled by \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classGainAdjustment_acb17361e88516b9effd3d4195be1ab9e}\label{classGainAdjustment_acb17361e88516b9effd3d4195be1ab9e}} 
+\index{GainAdjustment@{GainAdjustment}!GainAdjustment@{GainAdjustment}}
+\index{GainAdjustment@{GainAdjustment}!GainAdjustment@{GainAdjustment}}
+\doxysubsubsection{\texorpdfstring{GainAdjustment()}{GainAdjustment()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Gain\+Adjustment\+::\+Gain\+Adjustment (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classGainAdjustment_ab6fc44d38c7276096f7fcf00734c6209}\label{classGainAdjustment_ab6fc44d38c7276096f7fcf00734c6209}} 
+\index{GainAdjustment@{GainAdjustment}!processFile@{processFile}}
+\index{processFile@{processFile}!GainAdjustment@{GainAdjustment}}
+\doxysubsubsection{\texorpdfstring{processFile()}{processFile()}}
+{\footnotesize\ttfamily void Gain\+Adjustment\+::process\+File (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classWavFile}{Wav\+File}} \&}]{wave\+File }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Function that reads header data, processes the buffer array, and updates header data. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em wave\+File} & the wavefile object whose buffer and header data are needed for editing/reading \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classAudioProcessor_aa53ecb88426cd440a04cc2fa782aa7bd}{Audio\+Processor}}.
+
+\mbox{\Hypertarget{classGainAdjustment_a700c01ec8fac6d7bcd2b41eb07315f4f}\label{classGainAdjustment_a700c01ec8fac6d7bcd2b41eb07315f4f}} 
+\index{GainAdjustment@{GainAdjustment}!runProcessor@{runProcessor}}
+\index{runProcessor@{runProcessor}!GainAdjustment@{GainAdjustment}}
+\doxysubsubsection{\texorpdfstring{runProcessor()}{runProcessor()}}
+{\footnotesize\ttfamily void Gain\+Adjustment\+::run\+Processor (\begin{DoxyParamCaption}\item[{float $\ast$}]{buffer,  }\item[{int}]{buffer\+Size }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Run the mathematical algorithm applied to the audio. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em buffer} & floating point array of audio values \\
+\hline
+{\em buffer\+Size} & length of the audio array \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classAudioProcessor_aee6879e7ac4bcebb1a6301fc42804109}{Audio\+Processor}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{gainadjustment_8h}{gainadjustment.\+h}}\item 
+\mbox{\hyperlink{gainadjustment_8cpp}{gainadjustment.\+cpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,84 @@
+\hypertarget{classAudioProcessor}{}\doxysection{Audio\+Processor Class Reference}
+\label{classAudioProcessor}\index{AudioProcessor@{AudioProcessor}}
+
+
+{\ttfamily \#include $<$audioprocessor.\+h$>$}
+
+
+
+Inheritance diagram for Audio\+Processor\+:
+% FIG 0
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \mbox{\hyperlink{classAudioProcessor_aee6879e7ac4bcebb1a6301fc42804109}{run\+Processor}} (float $\ast$buffer, int buffer\+Size)=0
+\begin{DoxyCompactList}\small\item\em Run the mathematical algorithm applied to the audio. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classAudioProcessor_aa53ecb88426cd440a04cc2fa782aa7bd}{process\+File}} (\mbox{\hyperlink{classWavFile}{Wav\+File}} \&wave\+File)=0
+\begin{DoxyCompactList}\small\item\em Function that reads header data, processes the buffer array, and updates header data. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classAudioProcessor_a1309773e191dc56a5ee478d53b1671e1}{fix\+Value}} (int sample)
+\item 
+\mbox{\hyperlink{classAudioProcessor_a222a3c4c332d24f06f817730baba968a}{Audio\+Processor}} ()=default
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classAudioProcessor_a222a3c4c332d24f06f817730baba968a}\label{classAudioProcessor_a222a3c4c332d24f06f817730baba968a}} 
+\index{AudioProcessor@{AudioProcessor}!AudioProcessor@{AudioProcessor}}
+\index{AudioProcessor@{AudioProcessor}!AudioProcessor@{AudioProcessor}}
+\doxysubsubsection{\texorpdfstring{AudioProcessor()}{AudioProcessor()}}
+{\footnotesize\ttfamily Audio\+Processor\+::\+Audio\+Processor (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classAudioProcessor_a1309773e191dc56a5ee478d53b1671e1}\label{classAudioProcessor_a1309773e191dc56a5ee478d53b1671e1}} 
+\index{AudioProcessor@{AudioProcessor}!fixValue@{fixValue}}
+\index{fixValue@{fixValue}!AudioProcessor@{AudioProcessor}}
+\doxysubsubsection{\texorpdfstring{fixValue()}{fixValue()}}
+{\footnotesize\ttfamily void Audio\+Processor\+::fix\+Value (\begin{DoxyParamCaption}\item[{int}]{sample }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{classAudioProcessor_aa53ecb88426cd440a04cc2fa782aa7bd}\label{classAudioProcessor_aa53ecb88426cd440a04cc2fa782aa7bd}} 
+\index{AudioProcessor@{AudioProcessor}!processFile@{processFile}}
+\index{processFile@{processFile}!AudioProcessor@{AudioProcessor}}
+\doxysubsubsection{\texorpdfstring{processFile()}{processFile()}}
+{\footnotesize\ttfamily virtual void Audio\+Processor\+::process\+File (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classWavFile}{Wav\+File}} \&}]{wave\+File }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Function that reads header data, processes the buffer array, and updates header data. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em wave\+File} & the wavefile object whose buffer and header data are needed for editing/reading \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \mbox{\hyperlink{classEcho_af482f5b625cca570c0caaccb6c3d1f5c}{Echo}}, \mbox{\hyperlink{classCompressor_adb9c9bd1b514c83b2c3ded324b89c795}{Compressor}}, \mbox{\hyperlink{classLowPassFilter_aaf11526086ce37b102fa1aa870ce6373}{Low\+Pass\+Filter}}, \mbox{\hyperlink{classNormalization_a9b98d4cca603911cc8108fd663dff2b3}{Normalization}}, and \mbox{\hyperlink{classGainAdjustment_ab6fc44d38c7276096f7fcf00734c6209}{Gain\+Adjustment}}.
+
+\mbox{\Hypertarget{classAudioProcessor_aee6879e7ac4bcebb1a6301fc42804109}\label{classAudioProcessor_aee6879e7ac4bcebb1a6301fc42804109}} 
+\index{AudioProcessor@{AudioProcessor}!runProcessor@{runProcessor}}
+\index{runProcessor@{runProcessor}!AudioProcessor@{AudioProcessor}}
+\doxysubsubsection{\texorpdfstring{runProcessor()}{runProcessor()}}
+{\footnotesize\ttfamily virtual void Audio\+Processor\+::run\+Processor (\begin{DoxyParamCaption}\item[{float $\ast$}]{buffer,  }\item[{int}]{buffer\+Size }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Run the mathematical algorithm applied to the audio. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em buffer} & floating point array of audio values \\
+\hline
+{\em buffer\+Size} & length of the audio array \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \mbox{\hyperlink{classLowPassFilter_a7b862f4067ba6fad5f263be1d0408eca}{Low\+Pass\+Filter}}, \mbox{\hyperlink{classEcho_a127e8e7229312251e15a56d8de16e6d0}{Echo}}, \mbox{\hyperlink{classCompressor_a72c544985b3bed68e576ed1ed94e9846}{Compressor}}, \mbox{\hyperlink{classNormalization_ae032f62275911a18ba0880a81431c943}{Normalization}}, and \mbox{\hyperlink{classGainAdjustment_a700c01ec8fac6d7bcd2b41eb07315f4f}{Gain\+Adjustment}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{audioprocessor_8h}{audioprocessor.\+h}}\end{DoxyCompactItemize}

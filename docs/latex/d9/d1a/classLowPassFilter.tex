@@ -1,0 +1,117 @@
+\hypertarget{classLowPassFilter}{}\doxysection{Low\+Pass\+Filter Class Reference}
+\label{classLowPassFilter}\index{LowPassFilter@{LowPassFilter}}
+
+
+{\ttfamily \#include $<$lowpassfilter.\+h$>$}
+
+
+
+Inheritance diagram for Low\+Pass\+Filter\+:
+% FIG 0
+
+
+Collaboration diagram for Low\+Pass\+Filter\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classLowPassFilter_aaf11526086ce37b102fa1aa870ce6373}{process\+File}} (\mbox{\hyperlink{classWavFile}{Wav\+File}} \&wave\+File) override
+\begin{DoxyCompactList}\small\item\em Function that reads header data, processes the buffer array, and updates header data. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classLowPassFilter_a7b862f4067ba6fad5f263be1d0408eca}{run\+Processor}} (float $\ast$buffer, int buffer\+Size) override
+\begin{DoxyCompactList}\small\item\em Run the mathematical algorithm applied to the audio. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classLowPassFilter_a0d1ec9edc5f11419fd68c31b710023b1}{calculate\+Threshold\+Delay}} (float frequency, const \mbox{\hyperlink{structWavHeader}{Wav\+Header}} \&header)
+\begin{DoxyCompactList}\small\item\em Sets the delay to a value that reduces the threshold frequency to 50\% volume. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classLowPassFilter_aeb759672d27365d946e324fbcee177fc}{Low\+Pass\+Filter}} (float frequency, bool normalize)
+\begin{DoxyCompactList}\small\item\em Construct a new Low Pass Filter object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classLowPassFilter_ad4579c7f1a4e3b6c1c5330ee1e26b1ae}{Low\+Pass\+Filter}} ()=default
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classLowPassFilter_aeb759672d27365d946e324fbcee177fc}\label{classLowPassFilter_aeb759672d27365d946e324fbcee177fc}} 
+\index{LowPassFilter@{LowPassFilter}!LowPassFilter@{LowPassFilter}}
+\index{LowPassFilter@{LowPassFilter}!LowPassFilter@{LowPassFilter}}
+\doxysubsubsection{\texorpdfstring{LowPassFilter()}{LowPassFilter()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Low\+Pass\+Filter\+::\+Low\+Pass\+Filter (\begin{DoxyParamCaption}\item[{float}]{frequency,  }\item[{bool}]{normalize }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Construct a new Low Pass Filter object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em frequency} & the desired threshold frequency \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classLowPassFilter_ad4579c7f1a4e3b6c1c5330ee1e26b1ae}\label{classLowPassFilter_ad4579c7f1a4e3b6c1c5330ee1e26b1ae}} 
+\index{LowPassFilter@{LowPassFilter}!LowPassFilter@{LowPassFilter}}
+\index{LowPassFilter@{LowPassFilter}!LowPassFilter@{LowPassFilter}}
+\doxysubsubsection{\texorpdfstring{LowPassFilter()}{LowPassFilter()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Low\+Pass\+Filter\+::\+Low\+Pass\+Filter (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classLowPassFilter_a0d1ec9edc5f11419fd68c31b710023b1}\label{classLowPassFilter_a0d1ec9edc5f11419fd68c31b710023b1}} 
+\index{LowPassFilter@{LowPassFilter}!calculateThresholdDelay@{calculateThresholdDelay}}
+\index{calculateThresholdDelay@{calculateThresholdDelay}!LowPassFilter@{LowPassFilter}}
+\doxysubsubsection{\texorpdfstring{calculateThresholdDelay()}{calculateThresholdDelay()}}
+{\footnotesize\ttfamily void Low\+Pass\+Filter\+::calculate\+Threshold\+Delay (\begin{DoxyParamCaption}\item[{float}]{frequency,  }\item[{const \mbox{\hyperlink{structWavHeader}{Wav\+Header}} \&}]{header }\end{DoxyParamCaption})}
+
+
+
+Sets the delay to a value that reduces the threshold frequency to 50\% volume. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em frequency} & \\
+\hline
+{\em header} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classLowPassFilter_aaf11526086ce37b102fa1aa870ce6373}\label{classLowPassFilter_aaf11526086ce37b102fa1aa870ce6373}} 
+\index{LowPassFilter@{LowPassFilter}!processFile@{processFile}}
+\index{processFile@{processFile}!LowPassFilter@{LowPassFilter}}
+\doxysubsubsection{\texorpdfstring{processFile()}{processFile()}}
+{\footnotesize\ttfamily void Low\+Pass\+Filter\+::process\+File (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classWavFile}{Wav\+File}} \&}]{wave\+File }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Function that reads header data, processes the buffer array, and updates header data. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em wave\+File} & the wavefile object whose buffer and header data are needed for editing/reading \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{classEcho_af482f5b625cca570c0caaccb6c3d1f5c}{Echo}}.
+
+\mbox{\Hypertarget{classLowPassFilter_a7b862f4067ba6fad5f263be1d0408eca}\label{classLowPassFilter_a7b862f4067ba6fad5f263be1d0408eca}} 
+\index{LowPassFilter@{LowPassFilter}!runProcessor@{runProcessor}}
+\index{runProcessor@{runProcessor}!LowPassFilter@{LowPassFilter}}
+\doxysubsubsection{\texorpdfstring{runProcessor()}{runProcessor()}}
+{\footnotesize\ttfamily void Low\+Pass\+Filter\+::run\+Processor (\begin{DoxyParamCaption}\item[{float $\ast$}]{buffer,  }\item[{int}]{buffer\+Size }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Run the mathematical algorithm applied to the audio. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em buffer} & floating point array of audio values \\
+\hline
+{\em buffer\+Size} & length of the audio array \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{classEcho_a127e8e7229312251e15a56d8de16e6d0}{Echo}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{lowpassfilter_8h}{lowpassfilter.\+h}}\item 
+\mbox{\hyperlink{lowpassfilter_8cpp}{lowpassfilter.\+cpp}}\end{DoxyCompactItemize}

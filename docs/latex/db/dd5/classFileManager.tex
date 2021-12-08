@@ -1,0 +1,138 @@
+\hypertarget{classFileManager}{}\doxysection{File\+Manager Class Reference}
+\label{classFileManager}\index{FileManager@{FileManager}}
+
+
+{\ttfamily \#include $<$file\+Manager.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{classFileManager_a3ab040e540edd3ce903d7155771764fb}{can\+Open\+File}} (const std\+::string \&file\+Name)
+\begin{DoxyCompactList}\small\item\em This checks if the wave file can be opened. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classFileManager_a6a331c04a89b715da63b1d369f96225d}{read\+File}} (const std\+::string \&file\+Name)
+\begin{DoxyCompactList}\small\item\em Reads the actual wave file. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classFileManager_acb6f484ba8c0de63aee3c3ebfcb3c531}{save\+File}} (const std\+::string \&o\+File\+Name)
+\begin{DoxyCompactList}\small\item\em puts in the new data back into the wave file \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classFileManager_ad093d443242f7a04e97de39b60e0b989}{set\+Data}} (const std\+::vector$<$ float $>$ \&new\+Vector)
+\begin{DoxyCompactList}\small\item\em sets the vecotr of data \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classFileManager_aeefbeea064cfe2722aa16b8dbf16b85e}{setwav\+Header}} (const \mbox{\hyperlink{structWavHeader}{Wav\+Header}} \&new\+Wav\+Header)
+\begin{DoxyCompactList}\small\item\em sets the wav\+Header \end{DoxyCompactList}\item 
+float $\ast$ \mbox{\hyperlink{classFileManager_a96d264ea09b3cb7da0cb359f70b36c99}{get\+Data}} ()
+\begin{DoxyCompactList}\small\item\em returns data \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structWavHeader}{Wav\+Header}} \mbox{\hyperlink{classFileManager_a4a401308a50d7c891938ce7384c835ec}{getwav\+Header}} ()
+\begin{DoxyCompactList}\small\item\em returns the wav header \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classFileManager_a3ab040e540edd3ce903d7155771764fb}\label{classFileManager_a3ab040e540edd3ce903d7155771764fb}} 
+\index{FileManager@{FileManager}!canOpenFile@{canOpenFile}}
+\index{canOpenFile@{canOpenFile}!FileManager@{FileManager}}
+\doxysubsubsection{\texorpdfstring{canOpenFile()}{canOpenFile()}}
+{\footnotesize\ttfamily bool File\+Manager\+::can\+Open\+File (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{file\+Name }\end{DoxyParamCaption})}
+
+
+
+This checks if the wave file can be opened. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em file\+Name} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if file can be opened 
+
+false if file cannot be 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classFileManager_a96d264ea09b3cb7da0cb359f70b36c99}\label{classFileManager_a96d264ea09b3cb7da0cb359f70b36c99}} 
+\index{FileManager@{FileManager}!getData@{getData}}
+\index{getData@{getData}!FileManager@{FileManager}}
+\doxysubsubsection{\texorpdfstring{getData()}{getData()}}
+{\footnotesize\ttfamily float $\ast$ File\+Manager\+::get\+Data (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+returns data 
+
+\begin{DoxyReturn}{Returns}
+float$\ast$ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classFileManager_a4a401308a50d7c891938ce7384c835ec}\label{classFileManager_a4a401308a50d7c891938ce7384c835ec}} 
+\index{FileManager@{FileManager}!getwavHeader@{getwavHeader}}
+\index{getwavHeader@{getwavHeader}!FileManager@{FileManager}}
+\doxysubsubsection{\texorpdfstring{getwavHeader()}{getwavHeader()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structWavHeader}{Wav\+Header}} File\+Manager\+::getwav\+Header (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+returns the wav header 
+
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{structWavHeader}{Wav\+Header}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classFileManager_a6a331c04a89b715da63b1d369f96225d}\label{classFileManager_a6a331c04a89b715da63b1d369f96225d}} 
+\index{FileManager@{FileManager}!readFile@{readFile}}
+\index{readFile@{readFile}!FileManager@{FileManager}}
+\doxysubsubsection{\texorpdfstring{readFile()}{readFile()}}
+{\footnotesize\ttfamily void File\+Manager\+::read\+File (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{file\+Name }\end{DoxyParamCaption})}
+
+
+
+Reads the actual wave file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em file\+Name} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classFileManager_acb6f484ba8c0de63aee3c3ebfcb3c531}\label{classFileManager_acb6f484ba8c0de63aee3c3ebfcb3c531}} 
+\index{FileManager@{FileManager}!saveFile@{saveFile}}
+\index{saveFile@{saveFile}!FileManager@{FileManager}}
+\doxysubsubsection{\texorpdfstring{saveFile()}{saveFile()}}
+{\footnotesize\ttfamily void File\+Manager\+::save\+File (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{o\+File\+Name }\end{DoxyParamCaption})}
+
+
+
+puts in the new data back into the wave file 
+
+
+\begin{DoxyParams}{Parameters}
+{\em o\+File\+Name} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classFileManager_ad093d443242f7a04e97de39b60e0b989}\label{classFileManager_ad093d443242f7a04e97de39b60e0b989}} 
+\index{FileManager@{FileManager}!setData@{setData}}
+\index{setData@{setData}!FileManager@{FileManager}}
+\doxysubsubsection{\texorpdfstring{setData()}{setData()}}
+{\footnotesize\ttfamily void File\+Manager\+::set\+Data (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ float $>$ \&}]{new\+Vector }\end{DoxyParamCaption})}
+
+
+
+sets the vecotr of data 
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+Vector} & a float of vectors \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classFileManager_aeefbeea064cfe2722aa16b8dbf16b85e}\label{classFileManager_aeefbeea064cfe2722aa16b8dbf16b85e}} 
+\index{FileManager@{FileManager}!setwavHeader@{setwavHeader}}
+\index{setwavHeader@{setwavHeader}!FileManager@{FileManager}}
+\doxysubsubsection{\texorpdfstring{setwavHeader()}{setwavHeader()}}
+{\footnotesize\ttfamily void File\+Manager\+::setwav\+Header (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structWavHeader}{Wav\+Header}} \&}]{new\+Wav\+Header }\end{DoxyParamCaption})}
+
+
+
+sets the wav\+Header 
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+Wav\+Header} & \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{fileManager_8h}{file\+Manager.\+h}}\item 
+\mbox{\hyperlink{fileManager_8cpp}{file\+Manager.\+cpp}}\end{DoxyCompactItemize}

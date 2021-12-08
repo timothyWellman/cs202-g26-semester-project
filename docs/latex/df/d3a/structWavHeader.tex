@@ -1,0 +1,250 @@
+\hypertarget{structWavHeader}{}\doxysection{Wav\+Header Struct Reference}
+\label{structWavHeader}\index{WavHeader@{WavHeader}}
+
+
+{\ttfamily \#include $<$wavheader.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{structWavHeader_ab09e34f48093b8d30d56b18c35a80eea}{check\+Header}} ()
+\begin{DoxyCompactList}\small\item\em Function used to check the header upon first getting the values. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structWavHeader}{Wav\+Header}} \& \mbox{\hyperlink{structWavHeader_a9dc04bf8cf7d13ad618d3bcf14d24c02}{operator=}} (const \mbox{\hyperlink{structWavHeader}{Wav\+Header}} \&rhs)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+char \mbox{\hyperlink{structWavHeader_afc8ccb24667a85183aeb40549d7e8bd8}{chunk\+Id}} \mbox{[}4\mbox{]}
+\begin{DoxyCompactList}\small\item\em This is supposed to be \char`\"{}\+R\+I\+F\+F\char`\"{}. If not, we should throw an exception when trying the code. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{structWavHeader_aabec07ac9c8400dfb62e18d23fa6a5c1}{chunk\+Size}}
+\begin{DoxyCompactList}\small\item\em This is the size of the file -\/8 or sub\+Chunk2\+Size + 44 -\/ 8. \end{DoxyCompactList}\item 
+char \mbox{\hyperlink{structWavHeader_ab1748144c5a74f514973d13aa2257e7c}{format}} \mbox{[}4\mbox{]}
+\begin{DoxyCompactList}\small\item\em This is supposed to be \char`\"{}\+W\+A\+V\+E\char`\"{}. If not, we need to throw an exception. \end{DoxyCompactList}\item 
+char \mbox{\hyperlink{structWavHeader_aaf4bba75e7a93356b3199b7ebb685dcb}{sub\+Chunk1\+Id}} \mbox{[}4\mbox{]}
+\begin{DoxyCompactList}\small\item\em Either \char`\"{}fmt \char`\"{} or exception. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{structWavHeader_ac7408e0a1c5bb0c1f7c3b1009a028615}{sub\+Chunk1\+Size}}
+\begin{DoxyCompactList}\small\item\em Expected to be 16, else an exception is needed. \end{DoxyCompactList}\item 
+short \mbox{\hyperlink{structWavHeader_af052ba52da4a1bda137ce0171f3d763e}{audio\+Format}}
+\begin{DoxyCompactList}\small\item\em We expect this to be 1, unless it is compressed. Not sure how to deal with that yet. \end{DoxyCompactList}\item 
+short \mbox{\hyperlink{structWavHeader_a974f24ee8f6c0f7a6a881b1b5f917bfa}{num\+Channels}}
+\begin{DoxyCompactList}\small\item\em Number of Channels of audio\+: important for processors like echo. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{structWavHeader_a70f6545b7646e8f9c2f02118150566d1}{sample\+Rate}}
+\begin{DoxyCompactList}\small\item\em The number of samples taken per second. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{structWavHeader_ab9c193dd57da1a877cd5193657ed8a75}{byte\+Rate}}
+\begin{DoxyCompactList}\small\item\em a confirmable function of several values for exception throwing \end{DoxyCompactList}\item 
+short \mbox{\hyperlink{structWavHeader_a1bfbf825695b7626f58e64355a3ee4b1}{block\+Align}}
+\begin{DoxyCompactList}\small\item\em Num\+Channels $\ast$ Bits\+Per\+Sample/8. \end{DoxyCompactList}\item 
+short \mbox{\hyperlink{structWavHeader_a2dbf27f9cd07e02e744d4f71bc25109b}{bits\+Per\+Sample}}
+\begin{DoxyCompactList}\small\item\em Determines possible values of the samples/bit depth. \end{DoxyCompactList}\item 
+char \mbox{\hyperlink{structWavHeader_a3af811627864b4cd486650427eb4e9e3}{sub\+Chunk2\+Id}} \mbox{[}4\mbox{]}
+\begin{DoxyCompactList}\small\item\em Really just has to be \char`\"{}data\char`\"{} or an exception is needed. \end{DoxyCompactList}\item 
+short \mbox{\hyperlink{structWavHeader_ac7d6090443e2dab32c5b60694eee1ac2}{sub\+Chunk2\+Size}}
+\begin{DoxyCompactList}\small\item\em The length of the buffer array. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+std\+::ostream \& \mbox{\hyperlink{structWavHeader_adff18875e02d489dc2d228a2f2f699bb}{operator$<$$<$}} (std\+::ostream \&out, const \mbox{\hyperlink{structWavHeader}{Wav\+Header}} \&meta\+Out)
+\begin{DoxyCompactList}\small\item\em Optional use of the output stream to write to the file. not needed but fun to write. \end{DoxyCompactList}\item 
+std\+::istream \& \mbox{\hyperlink{structWavHeader_a677d81cdc51e8e2e5d627ce2d0eb5997}{operator$>$$>$}} (std\+::istream \&in, \mbox{\hyperlink{structWavHeader}{Wav\+Header}} \&meta\+In)
+\begin{DoxyCompactList}\small\item\em Similar to the ostream overload, this isn\textquotesingle{}t needed, but should work to read in from a file. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{structWavHeader_ab09e34f48093b8d30d56b18c35a80eea}\label{structWavHeader_ab09e34f48093b8d30d56b18c35a80eea}} 
+\index{WavHeader@{WavHeader}!checkHeader@{checkHeader}}
+\index{checkHeader@{checkHeader}!WavHeader@{WavHeader}}
+\doxysubsubsection{\texorpdfstring{checkHeader()}{checkHeader()}}
+{\footnotesize\ttfamily void Wav\+Header\+::check\+Header (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Function used to check the header upon first getting the values. 
+
+\mbox{\Hypertarget{structWavHeader_a9dc04bf8cf7d13ad618d3bcf14d24c02}\label{structWavHeader_a9dc04bf8cf7d13ad618d3bcf14d24c02}} 
+\index{WavHeader@{WavHeader}!operator=@{operator=}}
+\index{operator=@{operator=}!WavHeader@{WavHeader}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structWavHeader}{Wav\+Header}} \& Wav\+Header\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structWavHeader}{Wav\+Header}} \&}]{rhs }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Friends And Related Function Documentation}
+\mbox{\Hypertarget{structWavHeader_adff18875e02d489dc2d228a2f2f699bb}\label{structWavHeader_adff18875e02d489dc2d228a2f2f699bb}} 
+\index{WavHeader@{WavHeader}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!WavHeader@{WavHeader}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$}{operator<<}}
+{\footnotesize\ttfamily std\+::ostream\& operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{out,  }\item[{const \mbox{\hyperlink{structWavHeader}{Wav\+Header}} \&}]{meta\+Out }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Optional use of the output stream to write to the file. not needed but fun to write. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em out} & \\
+\hline
+{\em meta\+Out} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+std\+::ostream\& 
+\end{DoxyReturn}
+\mbox{\Hypertarget{structWavHeader_a677d81cdc51e8e2e5d627ce2d0eb5997}\label{structWavHeader_a677d81cdc51e8e2e5d627ce2d0eb5997}} 
+\index{WavHeader@{WavHeader}!operator$>$$>$@{operator$>$$>$}}
+\index{operator$>$$>$@{operator$>$$>$}!WavHeader@{WavHeader}}
+\doxysubsubsection{\texorpdfstring{operator$>$$>$}{operator>>}}
+{\footnotesize\ttfamily std\+::istream\& operator$>$$>$ (\begin{DoxyParamCaption}\item[{std\+::istream \&}]{in,  }\item[{\mbox{\hyperlink{structWavHeader}{Wav\+Header}} \&}]{meta\+In }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Similar to the ostream overload, this isn\textquotesingle{}t needed, but should work to read in from a file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em in} & \\
+\hline
+{\em meta\+In} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+std\+::istream\& 
+\end{DoxyReturn}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{structWavHeader_af052ba52da4a1bda137ce0171f3d763e}\label{structWavHeader_af052ba52da4a1bda137ce0171f3d763e}} 
+\index{WavHeader@{WavHeader}!audioFormat@{audioFormat}}
+\index{audioFormat@{audioFormat}!WavHeader@{WavHeader}}
+\doxysubsubsection{\texorpdfstring{audioFormat}{audioFormat}}
+{\footnotesize\ttfamily short Wav\+Header\+::audio\+Format}
+
+
+
+We expect this to be 1, unless it is compressed. Not sure how to deal with that yet. 
+
+\mbox{\Hypertarget{structWavHeader_a2dbf27f9cd07e02e744d4f71bc25109b}\label{structWavHeader_a2dbf27f9cd07e02e744d4f71bc25109b}} 
+\index{WavHeader@{WavHeader}!bitsPerSample@{bitsPerSample}}
+\index{bitsPerSample@{bitsPerSample}!WavHeader@{WavHeader}}
+\doxysubsubsection{\texorpdfstring{bitsPerSample}{bitsPerSample}}
+{\footnotesize\ttfamily short Wav\+Header\+::bits\+Per\+Sample}
+
+
+
+Determines possible values of the samples/bit depth. 
+
+\mbox{\Hypertarget{structWavHeader_a1bfbf825695b7626f58e64355a3ee4b1}\label{structWavHeader_a1bfbf825695b7626f58e64355a3ee4b1}} 
+\index{WavHeader@{WavHeader}!blockAlign@{blockAlign}}
+\index{blockAlign@{blockAlign}!WavHeader@{WavHeader}}
+\doxysubsubsection{\texorpdfstring{blockAlign}{blockAlign}}
+{\footnotesize\ttfamily short Wav\+Header\+::block\+Align}
+
+
+
+Num\+Channels $\ast$ Bits\+Per\+Sample/8. 
+
+\mbox{\Hypertarget{structWavHeader_ab9c193dd57da1a877cd5193657ed8a75}\label{structWavHeader_ab9c193dd57da1a877cd5193657ed8a75}} 
+\index{WavHeader@{WavHeader}!byteRate@{byteRate}}
+\index{byteRate@{byteRate}!WavHeader@{WavHeader}}
+\doxysubsubsection{\texorpdfstring{byteRate}{byteRate}}
+{\footnotesize\ttfamily int Wav\+Header\+::byte\+Rate}
+
+
+
+a confirmable function of several values for exception throwing 
+
+\mbox{\Hypertarget{structWavHeader_afc8ccb24667a85183aeb40549d7e8bd8}\label{structWavHeader_afc8ccb24667a85183aeb40549d7e8bd8}} 
+\index{WavHeader@{WavHeader}!chunkId@{chunkId}}
+\index{chunkId@{chunkId}!WavHeader@{WavHeader}}
+\doxysubsubsection{\texorpdfstring{chunkId}{chunkId}}
+{\footnotesize\ttfamily char Wav\+Header\+::chunk\+Id\mbox{[}4\mbox{]}}
+
+
+
+This is supposed to be \char`\"{}\+R\+I\+F\+F\char`\"{}. If not, we should throw an exception when trying the code. 
+
+\mbox{\Hypertarget{structWavHeader_aabec07ac9c8400dfb62e18d23fa6a5c1}\label{structWavHeader_aabec07ac9c8400dfb62e18d23fa6a5c1}} 
+\index{WavHeader@{WavHeader}!chunkSize@{chunkSize}}
+\index{chunkSize@{chunkSize}!WavHeader@{WavHeader}}
+\doxysubsubsection{\texorpdfstring{chunkSize}{chunkSize}}
+{\footnotesize\ttfamily int Wav\+Header\+::chunk\+Size}
+
+
+
+This is the size of the file -\/8 or sub\+Chunk2\+Size + 44 -\/ 8. 
+
+\mbox{\Hypertarget{structWavHeader_ab1748144c5a74f514973d13aa2257e7c}\label{structWavHeader_ab1748144c5a74f514973d13aa2257e7c}} 
+\index{WavHeader@{WavHeader}!format@{format}}
+\index{format@{format}!WavHeader@{WavHeader}}
+\doxysubsubsection{\texorpdfstring{format}{format}}
+{\footnotesize\ttfamily char Wav\+Header\+::format\mbox{[}4\mbox{]}}
+
+
+
+This is supposed to be \char`\"{}\+W\+A\+V\+E\char`\"{}. If not, we need to throw an exception. 
+
+\mbox{\Hypertarget{structWavHeader_a974f24ee8f6c0f7a6a881b1b5f917bfa}\label{structWavHeader_a974f24ee8f6c0f7a6a881b1b5f917bfa}} 
+\index{WavHeader@{WavHeader}!numChannels@{numChannels}}
+\index{numChannels@{numChannels}!WavHeader@{WavHeader}}
+\doxysubsubsection{\texorpdfstring{numChannels}{numChannels}}
+{\footnotesize\ttfamily short Wav\+Header\+::num\+Channels}
+
+
+
+Number of Channels of audio\+: important for processors like echo. 
+
+\mbox{\Hypertarget{structWavHeader_a70f6545b7646e8f9c2f02118150566d1}\label{structWavHeader_a70f6545b7646e8f9c2f02118150566d1}} 
+\index{WavHeader@{WavHeader}!sampleRate@{sampleRate}}
+\index{sampleRate@{sampleRate}!WavHeader@{WavHeader}}
+\doxysubsubsection{\texorpdfstring{sampleRate}{sampleRate}}
+{\footnotesize\ttfamily int Wav\+Header\+::sample\+Rate}
+
+
+
+The number of samples taken per second. 
+
+\mbox{\Hypertarget{structWavHeader_aaf4bba75e7a93356b3199b7ebb685dcb}\label{structWavHeader_aaf4bba75e7a93356b3199b7ebb685dcb}} 
+\index{WavHeader@{WavHeader}!subChunk1Id@{subChunk1Id}}
+\index{subChunk1Id@{subChunk1Id}!WavHeader@{WavHeader}}
+\doxysubsubsection{\texorpdfstring{subChunk1Id}{subChunk1Id}}
+{\footnotesize\ttfamily char Wav\+Header\+::sub\+Chunk1\+Id\mbox{[}4\mbox{]}}
+
+
+
+Either \char`\"{}fmt \char`\"{} or exception. 
+
+\mbox{\Hypertarget{structWavHeader_ac7408e0a1c5bb0c1f7c3b1009a028615}\label{structWavHeader_ac7408e0a1c5bb0c1f7c3b1009a028615}} 
+\index{WavHeader@{WavHeader}!subChunk1Size@{subChunk1Size}}
+\index{subChunk1Size@{subChunk1Size}!WavHeader@{WavHeader}}
+\doxysubsubsection{\texorpdfstring{subChunk1Size}{subChunk1Size}}
+{\footnotesize\ttfamily int Wav\+Header\+::sub\+Chunk1\+Size}
+
+
+
+Expected to be 16, else an exception is needed. 
+
+\mbox{\Hypertarget{structWavHeader_a3af811627864b4cd486650427eb4e9e3}\label{structWavHeader_a3af811627864b4cd486650427eb4e9e3}} 
+\index{WavHeader@{WavHeader}!subChunk2Id@{subChunk2Id}}
+\index{subChunk2Id@{subChunk2Id}!WavHeader@{WavHeader}}
+\doxysubsubsection{\texorpdfstring{subChunk2Id}{subChunk2Id}}
+{\footnotesize\ttfamily char Wav\+Header\+::sub\+Chunk2\+Id\mbox{[}4\mbox{]}}
+
+
+
+Really just has to be \char`\"{}data\char`\"{} or an exception is needed. 
+
+\mbox{\Hypertarget{structWavHeader_ac7d6090443e2dab32c5b60694eee1ac2}\label{structWavHeader_ac7d6090443e2dab32c5b60694eee1ac2}} 
+\index{WavHeader@{WavHeader}!subChunk2Size@{subChunk2Size}}
+\index{subChunk2Size@{subChunk2Size}!WavHeader@{WavHeader}}
+\doxysubsubsection{\texorpdfstring{subChunk2Size}{subChunk2Size}}
+{\footnotesize\ttfamily short Wav\+Header\+::sub\+Chunk2\+Size}
+
+
+
+The length of the buffer array. 
+
+
+
+The documentation for this struct was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{wavheader_8h}{wavheader.\+h}}\item 
+\mbox{\hyperlink{wavheader_8cpp}{wavheader.\+cpp}}\end{DoxyCompactItemize}
