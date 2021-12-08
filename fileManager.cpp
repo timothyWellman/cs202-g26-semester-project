@@ -49,11 +49,13 @@ void FileManager::readFile(const std::string &fileName){
 			buffer8 = new char[wavHeader.subChunk2Size];
 			inputFile.read((char*) buffer8, wavHeader.subChunk2Size);
 			for(int i = 0; i < wavHeader.subChunk2Size / wavHeader.blockAlign; i++){
-				data.push_back((float)buffer8[i] / 256);
+				data.push_back(((float)buffer8[i]-128) / 128);
 			}
 		}
 
 		inputFile.close();
+		delete buffer16;
+		delete buffer8;
 	}
 	// delete[]buffer16;
 	// delete[]buffer8;

@@ -33,7 +33,7 @@ int main(){
         manager.readFile(filename);
         WavFile file(manager.getwavHeader(), manager.getData());
         
-        cout << manager.getwavHeader();
+        cout << manager.getwavHeader() << endl;
         cout << file.getWavHeader() << endl;
 
         cout << "File metadata:" << endl;
