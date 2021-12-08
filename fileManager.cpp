@@ -30,8 +30,8 @@ void FileManager::readFile(const std::string &fileName){
 
 	if(inputFile.is_open()){
 		
-		//inputFile.read((char*) &wavHeader, sizeof(wavHeader));
-		inputFile >> wavHeader;
+		inputFile.read((char*) &wavHeader, sizeof(wavHeader));
+		//inputFile >> wavHeader;
 
 		try{
 			wavHeader.checkHeader();
