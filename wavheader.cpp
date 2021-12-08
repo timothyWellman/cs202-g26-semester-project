@@ -50,7 +50,7 @@ WavHeader& WavHeader::operator=(const WavHeader& rhs){
 	if (this == &rhs) return *this; //checking for self assignment
 
 	//assign them values
-	for (int i = 0; i<4; i++){chunkId[i] >> rhs.chunkId[i]; }
+	for (int i = 0; i<4; i++){chunkId[i] = rhs.chunkId[i]; }
 	chunkSize = rhs.chunkSize;
 	for (int i = 0; i<4; i++){format[i] = rhs.format[i]; }
 	for (int i = 0; i<4; i++){subChunk1Id[i] = rhs.subChunk1Id[i]; }
