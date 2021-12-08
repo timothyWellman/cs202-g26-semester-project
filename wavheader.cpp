@@ -8,11 +8,10 @@
 
 //stream output operator for writing data for file
 std::ostream& operator<<(std::ostream& out, const WavHeader& headerOut){
-
-	for (int i = 0; i<4; i++){out << headerOut.chunkId[i]; }
+	out.write(headerOut.chunkId, 4);
 	out << headerOut.chunkSize;
-	for (int i = 0; i<4; i++){out << headerOut.format[i]; }
-	for (int i = 0; i<4; i++){out << headerOut.subChunk1Id[i]; }
+	out.write(headerOut.format, 4);
+	out.write(headerOut.subChunk1Id, 4);
 	out << headerOut.subChunk1Size;
 	out << headerOut.audioFormat;
 	out << headerOut.numChannels;
@@ -20,7 +19,7 @@ std::ostream& operator<<(std::ostream& out, const WavHeader& headerOut){
 	out << headerOut.byteRate;
 	out << headerOut.blockAlign;
 	out << headerOut.bitsPerSample;
-	for (int i = 0; i<4; i++){out << headerOut.subChunk2Id[i]; }
+	out.write(headerOut.subChunk2Id, 4);
 	out << headerOut.subChunk2Size;
 
 	return out;
@@ -31,10 +30,10 @@ std::istream& operator>>(std::istream& in, WavHeader& headerIn){
 
 //thus far, this code will only work if there are 0 problems. exceptions to be added soon
 
-	for (int i = 0; i<4; i++){in >> headerIn.chunkId[i]; }
+	in.read(headerIn.chunkId, 4);
 	in >> headerIn.chunkSize;
-	for (int i = 0; i<4; i++){in >> headerIn.format[i]; }
-	for (int i = 0; i<4; i++){in >> headerIn.subChunk1Id[i]; }
+	in.read(headerIn.format, 4);
+	in.read(headerIn.subChunk1Id, 4);
 	in >> headerIn.subChunk1Size;
 	in >> headerIn.audioFormat;
 	in >> headerIn.numChannels;
@@ -42,7 +41,7 @@ std::istream& operator>>(std::istream& in, WavHeader& headerIn){
 	in >> headerIn.byteRate;
 	in >> headerIn.blockAlign;
 	in >> headerIn.bitsPerSample;
-	for (int i = 0; i<4; i++){in >> headerIn.subChunk2Id[i]; }
+	in.read(headerIn.subChunk2Id, 4);
 	in >> headerIn.subChunk2Size;
 	return in;
 }
