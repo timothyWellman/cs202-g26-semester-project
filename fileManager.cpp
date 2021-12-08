@@ -30,8 +30,8 @@ void FileManager::readFile(const std::string &fileName){
 
 	if(inputFile.is_open()){
 		
-		inputFile.read((char*) &wavHeader, sizeof(wavHeader));
-		//inputFile >> wavHeader;
+		//inputFile.read((char*) &wavHeader, sizeof(wavHeader));
+		inputFile >> wavHeader;
 
 		try{
 			wavHeader.checkHeader();
@@ -57,8 +57,7 @@ void FileManager::readFile(const std::string &fileName){
 		delete buffer16;
 		delete buffer8;
 	}
-	// delete[]buffer16;
-	// delete[]buffer8;
+
 }
 
 /**
@@ -92,7 +91,8 @@ void FileManager::saveFile(const std::string &oFileName){
 			oFile.write((char*)buffer8, wavHeader.subChunk2Size);
 
 		}
-
+	delete buffer16;
+	delete buffer8;
 	oFile.close();
 
 }
