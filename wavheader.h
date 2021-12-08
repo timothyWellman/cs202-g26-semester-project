@@ -26,7 +26,7 @@ typedef struct WavHeader {
 	 * @brief This is the size of the file -8 or subChunk2Size + 44 - 8
 	 * 
 	 */
-	int chunkSize; 	
+	int32_t chunkSize; 	
 	
 	/**
 	 * @brief This is supposed to be "WAVE". If not, we need to throw an exception
@@ -44,7 +44,7 @@ typedef struct WavHeader {
 	 * @brief Expected to be 16, else an exception is needed
 	 * 
 	 */
-	int subChunk1Size; 
+	int32_t subChunk1Size; 
 
 	/**
 	 * @brief We expect this to be 1, unless it is compressed. Not sure how to deal with that yet.
@@ -62,13 +62,13 @@ typedef struct WavHeader {
 	 * @brief The number of samples taken per second. 
 	 * 
 	 */
-	int sampleRate; //need this for converting from samples to seconds
+	int32_t sampleRate; //need this for converting from samples to seconds
 	
 	/**
 	 * @brief  a confirmable function of several values for exception throwing
 	 * 
 	 */
-	int byteRate; 
+	int32_t byteRate; 
 	
 	/**
 	 * @brief NumChannels * BitsPerSample/8

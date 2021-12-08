@@ -75,7 +75,7 @@ void WavHeader::checkHeader(){
 	
 	for(int i = 0; i<4; i++){
 		if (stringsToCheck[i].compare(desiredStrings[i]) != 0){
-			throw std::runtime_error("There was an error reading your data. /nMake sure your file is an 8 or 16 bit .wav file./n");
+			throw std::runtime_error("There was an error reading your data. \nMake sure your file is an 8 or 16 bit .wav file.\n" + desiredStrings[i]);
 		}
 	}
 
