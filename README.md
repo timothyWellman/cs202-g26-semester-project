@@ -26,12 +26,16 @@ A UML diagram showing the basic design
 
 A section detailing issues, including any functionality that is missing
 
-
+	Currently, our program does take in user input, however, it does not print out the correct metadata.
+	After the user inputs what processor they would like to use, the new file of the edits isn't saved and an error is thrown.
+	In other words, the new modified wave file is not written due to the error tht is thrown.
+	All in all, the issues we have is the metadata not being dipslayed correctly and not being able to produce a modified wav file based on the processor the user selects to use for their wav file.
 
 
 A section detailing the challenges that you encountered in the project
 
 	Timothy: finding algorithms that explain themselves to a useful degree.
+	Rubi: Figuring out how to save the data of the modified original wave file into another file.
 
 
 
